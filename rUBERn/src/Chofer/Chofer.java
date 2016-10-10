@@ -1,6 +1,7 @@
 package Chofer;
 
 import rUBERn.Viaje;
+import rUBERn.Coordenada;
 
 /**
  * Created by Lucas on 10/10/2016.
@@ -8,15 +9,15 @@ import rUBERn.Viaje;
 public class Chofer {
     private Auto choferAuto;
     private boolean jornada= true;
-    private Coordenadas choferCoordenas;
+    private Coordenada choferCoordenas;
     private Viaje destino;
 
-    public Chofer(Auto choferAuto, Coordenadas choferCoordenadas){
+    public Chofer(Auto choferAuto, Coordenada choferCoordenadas){
         this.choferAuto=choferAuto;
         this.choferCoordenas=choferCoordenadas;
     }
 
-    public void setCoordenadas(Coordenadas newCoordenadas){
+    public void setCoordenadas(Coordenada newCoordenadas){
         choferCoordenas=newCoordenadas;
     }
 
