@@ -1,5 +1,5 @@
 package Cliente;
-//fffdfd
+
 import rUBERn.Viaje;
 import rUBERn.Coordenada;
 
@@ -24,9 +24,12 @@ public class Cliente {
         this.viaje = viaje;
     }
 
-    public askForTrip(Coordenada destino){
+    public void askForTrip(Coordenada destino){
         Viaje viaje = new Viaje(posicion, destino);
         this.viaje = viaje;
-        newTrip(viaje);
+    }
+
+    public void setPosicion(Coordenada posicion) {
+        this.posicion = posicion;
     }
 }
