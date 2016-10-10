@@ -5,16 +5,16 @@ package rUBERn;
  */
 public class Viaje {
 
-    private double[] ubicacion;
-    private double[] destino;
+    private Coordenada desde;
+    private Coordenada hasta;
 
-    public Viaje(double[] ubicacion, double[] destino){
-        this.ubicacion=ubicacion;
-        this.destino=destino;
+    public Viaje(Coordenada desde, Coordenada hasta){
+        this.desde=desde;
+        this.hasta=hasta;
     }
 
     public double getDistance(){
-        double ret = Math.sqrt(Math.pow(destino[0]-ubicacion[0],2.0)+Math.pow(destino[1]-ubicacion[1],2));
+        double ret = Math.sqrt(Math.pow(hasta.getX()-desde.getX(),2.0)+Math.pow(hasta.getY()-desde.getY(),2));
         return ret;
     }
 
