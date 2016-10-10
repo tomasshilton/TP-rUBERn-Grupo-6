@@ -7,6 +7,7 @@ public class Viaje {
 
     private Coordenada desde;
     private Coordenada hasta;
+    private double precio;
 
     public Viaje(Coordenada desde, Coordenada hasta){
         this.desde=desde;
@@ -14,8 +15,9 @@ public class Viaje {
     }
 
     public double getDistance(){
-        double ret = Math.sqrt(Math.pow(hasta.getX()-desde.getX(),2.0)+Math.pow(hasta.getY()-desde.getY(),2));
-        return ret;
+        return Math.sqrt(Math.pow(hasta.getX()-desde.getX(),2.0)+Math.pow(hasta.getY()-desde.getY(),2));
     }
+
+
 
 }
