@@ -7,7 +7,7 @@ public class Auto {
     private String modelo;
     private Categoria categoria;
 
-    public Auto(String marca, String modelo){
+    public Auto(String marca, String modelo, Categoria categoria){
         this.marca=marca;
         this.modelo=modelo;
         this.categoria = categoria;
