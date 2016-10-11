@@ -1,12 +1,12 @@
 package Chofer;
 
 
-public class Categoria {
+public class CategoriaShilton {
 
     private String nombre;
     private double costoAdicional;
 
-    public Categoria(String nombre, double costoAdicional) {
+    public CategoriaShilton(String nombre, double costoAdicional) {
         this.nombre = nombre;
         this.costoAdicional = costoAdicional;
     }

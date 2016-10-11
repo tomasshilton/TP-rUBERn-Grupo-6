@@ -5,7 +5,6 @@ public class Auto {
 
     private String marca;
     private String modelo;
-    private Categoria categoria;
     private int capacidad;
 
     public Auto(String marca, String modelo,int capacidad){
