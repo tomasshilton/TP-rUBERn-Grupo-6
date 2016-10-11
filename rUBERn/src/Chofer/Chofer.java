@@ -3,14 +3,14 @@ package Chofer;
 import rUBERn.Viaje;
 import rUBERn.Coordenada;
 
-/**
- * Created by Lucas on 10/10/2016.
- */
+
 public class Chofer {
+
     private Auto choferAuto;
-    private boolean jornada= true;
+    private boolean trabajando= true;
+    private boolean libre = true;
     private Coordenada choferCoordenas;
-    private Viaje destino;
+    private Viaje viaje;
 
     public Chofer(Auto choferAuto, Coordenada choferCoordenadas){
         this.choferAuto=choferAuto;
@@ -21,20 +21,28 @@ public class Chofer {
         choferCoordenas=newCoordenadas;
     }
 
-    public void setDestino(Viaje destino){
-        this.destino=destino;
+    public void setViaje(Viaje viaje){
+        this.viaje=viaje;
     }
 
     public void finalizarJordana(){
-        this.jornada=false;
+        trabajando=false;
     }
 
     public void iniciarJornada(){
-        this.jornada=true;
+        trabajando=true;
     }
 
-    public boolean getJornada(){
-        return jornada;
+    public void liberar(){
+        libre = true;
+    }
+
+    public void ocupar(){
+        libre = false;
+    }
+
+    public boolean disponibilidad(){
+        return libre && trabajando;
     }
 
 }

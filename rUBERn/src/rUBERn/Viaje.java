@@ -1,8 +1,7 @@
 package rUBERn;
 
-/**
- * Created by Simon on 10/10/2016.
- */
+
+
 public class Viaje {
 
     private Coordenada desde;
