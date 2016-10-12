@@ -9,6 +9,8 @@ public class Viaje {
     private double precio;
     private double distance;
 
+    private int numberOfPassenger=1;
+
     public Viaje(Coordenada desde, Coordenada hasta){
         this.desde=desde;
         this.hasta=hasta;
@@ -35,4 +37,17 @@ public class Viaje {
     public double getPrecio() {
         return precio;
     }
+
+    public int getNumberOfPassenger(){
+        return numberOfPassenger;
+    }
+
+    public void addAPassenger(){
+        addPassengers(1);
+    }
+
+    public void addPassengers(int passangers){
+        numberOfPassenger+=passangers;
+    }
+
 }

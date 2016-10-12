@@ -45,4 +45,8 @@ public class Chofer {
         return libre && trabajando;
     }
 
+    public Auto getChoferAuto(){
+        return choferAuto;
+    }
+
 }
