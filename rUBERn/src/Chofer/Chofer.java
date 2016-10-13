@@ -23,6 +23,7 @@ public class Chofer {
 
     public void setViaje(Viaje viaje){
         this.viaje=viaje;
+        ocupar(); //idea
     }
 
     public void finalizarJordana(){
