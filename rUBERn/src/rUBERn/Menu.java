@@ -4,10 +4,39 @@ import java.util.Scanner;
 
 public class Menu {
     public static void main(String[] args) {
-        System.out.print("Cliente:\n    1. Pedir viaje\n \nChofer:\n    1. Aceptar viaje\n    2. Rechazar viaje\n    3. Completar viaje\n \nrUBERn:\n    1. Nuevo cliente ");
+        System.out.print("Cliente:\n    1. Pedir viaje\n \nChofer:\n    2. Aceptar viaje\n    3. Rechazar viaje\n    4. Completar viaje\n \nrUBERn:\n    5. Nuevo cliente ");
         System.out.println(" \nIngrese un comando");
-        Scanner comando = new Scanner(System.in);
-        if (comando.hasNext("1"))
-            System.out.println("Viaje");
+        Scanner input = new Scanner(System.in);
+        int comando = input.nextInt();
+        //if (comando.hasNext("1"))
+        //    System.out.println("Viaje");
+        switch (comando){
+            case 1:
+                System.out.println("viaje1");
+                break;
+            case 2:
+                System.out.println("viaje2");
+                break;
+            case 3:
+                System.out.println("viaje3");
+                break;
+            case 4:
+                System.out.println("viaje4");
+                break;
+            case 5:
+                System.out.println("viaje5");
+                break;
+            case 6:
+                System.out.println("viaje6");
+                break;
+            case 7:
+                System.out.println("viaje7");
+                break;
+            case 8:
+                System.out.println("viaje8");
+                break;
+
+        }
+
     }
 }
