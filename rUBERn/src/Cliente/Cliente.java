@@ -30,9 +30,13 @@ public class Cliente {
                     "\n"+". Una vez finalizado puede pedir uno nuevamente");
     }
 
-    public void askForTrip(Coordenada destino){
-        Viaje viaje = new Viaje(posicion, destino);
+    public void askForTrip(Coordenada destino,int numbersOfPassenger){
+        Viaje viaje = new Viaje(posicion, destino,numbersOfPassenger);
         this.viaje = viaje;
+    }
+
+    public void askForTrip(Coordenada destino){
+        askForTrip(destino, 1);
     }
 
     public void setPosicion(Coordenada posicion) {

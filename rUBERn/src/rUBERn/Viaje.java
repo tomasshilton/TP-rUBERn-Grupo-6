@@ -9,13 +9,14 @@ public class Viaje {
     private double precio;
     private double distance;
 
-    private int numberOfPassenger=1;
+    private int numberOfPassenger;
 
-    public Viaje(Coordenada desde, Coordenada hasta){
+    public Viaje(Coordenada desde, Coordenada hasta, int numberOfPassenger){
         this.desde=desde;
         this.hasta=hasta;
         calculateDistance();
         calculatePrecio();
+        this.numberOfPassenger=numberOfPassenger;
     }
 
     private void calculateDistance(){
