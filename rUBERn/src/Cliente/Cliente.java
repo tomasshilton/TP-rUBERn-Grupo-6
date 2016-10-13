@@ -8,8 +8,6 @@ public class Cliente {
     private Viaje viaje;
     private Coordenada posicion;
 
-
-
     public Cliente(Coordenada posicion){
         this.posicion = posicion;
     }
