@@ -8,8 +8,7 @@ public class Menu {
         System.out.println(" \nIngrese un comando");
         Scanner input = new Scanner(System.in);
         int comando = input.nextInt();
-        //if (comando.hasNext("1"))
-        //    System.out.println("Viaje");
+
         switch (comando){
             case 1:
                 System.out.println("viaje1");
