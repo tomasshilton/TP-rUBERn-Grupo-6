@@ -31,9 +31,6 @@ public class Menu {
             case 7:
                 System.out.println("viaje7");
                 break;
-            case 8:
-                System.out.println("viaje8");
-                break;
 
         }
 
