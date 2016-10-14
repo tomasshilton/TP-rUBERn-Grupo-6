@@ -52,7 +52,7 @@ public class Gestion {
     }
 
     public double calcularCostoDeImagen(Chofer chofer, Viaje viaje){
-        return (viaje.getDistance()*2)/500 + ((viaje.getDistance()*2)/500)*(chofer.getChoferAuto().getCategoria().getCostoAdicional() / 100)
+        return (viaje.getDistance()*2)/500 + ((viaje.getDistance()*2)/500)*(chofer.getChoferAuto().getCategoria().getCostoAdicional() / 100);
     }
 
     public int compararCostoDeImagen(Chofer chofer1, Chofer chofer2, Viaje viaje){
