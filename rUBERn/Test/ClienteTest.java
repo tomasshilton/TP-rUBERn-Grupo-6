@@ -17,7 +17,7 @@ public class ClienteTest {
     @Test
     public void clienteTesterSinViaje(){
         Cliente firstClient = new Cliente(desde);
-        assertTrue(firstClient.getViaje().equals(null));
+        assertTrue(firstClient.getViaje()==(null));
 
     }
     @Test
