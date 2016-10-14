@@ -38,7 +38,7 @@ public class Gestion {
 
     public ArrayList<Chofer> sortByCostoDeImagen(ArrayList<Chofer> choferesConCapacidadYOnline, Viaje viaje){
         ArrayList<Chofer> choferesPorCostoDeImagen = new ArrayList<Chofer>();
-        Chofer choferConMenorCostoDeImagen = choferesConCapacidadYOnline(0);
+        Chofer choferConMenorCostoDeImagen = choferesConCapacidadYOnline.get(0);
         while (choferesConCapacidadYOnline.size() > 0) {
             for (Chofer choferATestear : choferesConCapacidadYOnline) {
                 if (compararCostoDeImagen(choferATestear, choferConMenorCostoDeImagen, viaje) == 1) {
@@ -48,6 +48,7 @@ public class Gestion {
             choferesPorCostoDeImagen.add(choferConMenorCostoDeImagen);
             choferesConCapacidadYOnline.remove(choferConMenorCostoDeImagen);
         }
+        return choferesPorCostoDeImagen;
     }
 
     public double calcularCostoDeImagen(Chofer chofer, Viaje viaje){
