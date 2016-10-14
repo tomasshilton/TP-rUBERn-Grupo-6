@@ -22,18 +22,43 @@ public class Gestion {
                 choferesOnline.add(choferATestear);
             }
         }
+        return choferesOnline;
     }
 
-    public ArrayList<Chofer> sortCapacity(Viaje viaje){
+    public ArrayList<Chofer> sortCapacity(Viaje viaje,ArrayList<Chofer> choferesOnline ){
         ArrayList<Chofer> choferesConCapacidad = new ArrayList<Chofer>();
         int capacidadATestear = viaje.getNumberOfPassenger();
-        for(Chofer choferATestear: choferes){
+        for(Chofer choferATestear: choferesOnline){
             if (choferATestear.getChoferAuto().getCapacidad() >= capacidadATestear){
                 choferesConCapacidad.add(choferATestear);
             }
         }
+        return choferesConCapacidad;
     }
 
+    public ArrayList<Chofer> sortByCostoDeImagen(ArrayList<Chofer> choferesConCapacidadYOnline, Viaje viaje){
+        ArrayList<Chofer> choferesPorCostoDeImagen = new ArrayList<Chofer>();
+        Chofer choferConMenorCostoDeImagen = choferesConCapacidadYOnline(0);
+        while (choferesConCapacidadYOnline.size() > 0) {
+            for (Chofer choferATestear : choferesConCapacidadYOnline) {
+                if (compararCostoDeImagen(choferATestear, choferConMenorCostoDeImagen, viaje) == 1) {
+                    choferConMenorCostoDeImagen = choferATestear;
+                }
+            }
+            choferesPorCostoDeImagen.add(choferConMenorCostoDeImagen);
+            choferesConCapacidadYOnline.remove(choferConMenorCostoDeImagen);
+        }
+    }
 
+    public double calcularCostoDeImagen(Chofer chofer, Viaje viaje){
+        return (viaje.getDistance()*2)/500 + ((viaje.getDistance()*2)/500)*(chofer.getChoferAuto().getCategoria().getCostoAdicional() / 100)
+    }
 
+    public int compararCostoDeImagen(Chofer chofer1, Chofer chofer2, Viaje viaje){
+        if (calcularCostoDeImagen(chofer1, viaje) < calcularCostoDeImagen(chofer2, viaje)){
+            return 1;
+        } else {
+            return 0;
+        }
+    }
 }
