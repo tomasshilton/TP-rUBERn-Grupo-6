@@ -9,13 +9,9 @@ import java.util.ArrayList;
 
 public class Gestion {
 
-    private ArrayList<Chofer> choferes;
 
-    public void addChofer(Chofer chofer){
-        choferes.add(chofer);
-    }
 
-    public ArrayList<Chofer> sortOnline(){
+    public ArrayList<Chofer> sortOnline(ArrayList<Chofer> choferes){
         ArrayList<Chofer> choferesOnline = new ArrayList<Chofer>();
         for(Chofer choferATestear: choferes){
             if (choferATestear.disponibilidad()){
