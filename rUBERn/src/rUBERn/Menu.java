@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Menu {
     public static void main(String[] args) {
-        System.out.print("Cliente:\n    1. Pedir viaje\n \nChofer:\n    2. Aceptar viaje\n    3. Rechazar viaje\n    4. Completar viaje\n \nrUBERn:\n    5. Nuevo cliente ");
+        System.out.print("Cliente:\n    1. Pedir viaje\n \nChofer:\n    2. Completar viaje\n \nrUBERn:\n    3. Nuevo cliente ");
         System.out.println(" \nIngrese un comando");
         Scanner input = new Scanner(System.in);
         int comando = input.nextInt();
