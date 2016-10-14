@@ -3,6 +3,7 @@ import Chofer.Categoria;
 import Chofer.Chofer;
 import org.junit.Test;
 import rUBERn.Coordenada;
+import rUBERn.Viaje;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -37,6 +38,19 @@ public class ChoferTest {
 
     @Test
     public void setChoferCoordTest(){
+        assertTrue(chofer.getChoferCoordenas().equals(choferCoord));
+        chofer.setCoordenadas(hasta);
+        assertFalse(chofer.getChoferCoordenas().equals(choferCoord));
+    }
 
+    @Test
+    public void setChoferViajeTest(){
+        Viaje trip = new Viaje(desde,hasta,1);
+        chofer.setViaje(trip);
+        assertFalse(chofer.disponibilidad());
+
+        chofer.liberar();
+
+        assertTrue(chofer.disponibilidad());
     }
 }
