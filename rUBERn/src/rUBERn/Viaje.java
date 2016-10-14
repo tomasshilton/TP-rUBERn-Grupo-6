@@ -5,22 +5,22 @@ package rUBERn;
 public class Viaje {
 
     private Coordenada desde;
-    private Coordenada hasta;
+    private Coordenada destino;
     private double precio;
     private double distance;
 
     private int numberOfPassenger;
 
-    public Viaje(Coordenada desde, Coordenada hasta, int numberOfPassenger){
+    public Viaje(Coordenada desde, Coordenada destino, int numberOfPassenger){
         this.desde=desde;
-        this.hasta=hasta;
+        this.destino=destino;
         calculateDistance();
         calculatePrecio();
         this.numberOfPassenger=numberOfPassenger;
     }
 
     private void calculateDistance(){
-        distance = Math.sqrt(Math.pow(hasta.getX()-desde.getX(),2.0)+Math.pow(hasta.getY()-desde.getY(),2));
+        distance = Math.sqrt(Math.pow(destino.getX()-desde.getX(),2.0)+Math.pow(destino.getY()-desde.getY(),2));
     }
 
     private void calculatePrecio(){
@@ -51,4 +51,7 @@ public class Viaje {
         numberOfPassenger+=passangers;
     }
 
+    public Coordenada getDestino() {
+        return destino;
+    }
 }

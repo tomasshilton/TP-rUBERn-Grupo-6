@@ -30,6 +30,13 @@ public class Chofer {
         ocupar(); //idea
     }
 
+    public void terminarViaje(){
+        setCoordenadas(viaje.getDestino());
+        liberar();
+        //metodo que pasa al sistema el resumen del viaje terminado
+        viaje = null;
+
+    }
     public void finalizarJordana(){
         trabajando=false;
     }
