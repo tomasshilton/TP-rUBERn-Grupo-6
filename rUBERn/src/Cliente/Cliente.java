@@ -5,7 +5,7 @@ import rUBERn.Coordenada;
 
 public class Cliente {
 
-    private Viaje viaje;
+    private Viaje viaje=null;
     private Coordenada posicion;
 
     public Cliente(Coordenada posicion){
