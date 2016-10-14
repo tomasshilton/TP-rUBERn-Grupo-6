@@ -1,9 +1,20 @@
 package rUBERn;
 
 
-public class rUBERn {
+import Chofer.Chofer;
+import rUBERn.Gestion;
+import java.util.ArrayList;
 
-    public void darViajeAChofer(){
+public class rUBERn{
+
+    private ArrayList<Chofer> choferes;
+
+    public void addChofer(Chofer chofer){
+        choferes.add(chofer);
+    }
+
+    public void darViajeAChofer(Viaje viaje){
+        sortOnline(choferes);
 
     }
 

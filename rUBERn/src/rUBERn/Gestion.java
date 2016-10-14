@@ -5,13 +5,31 @@ import Chofer.Chofer;
 import Chofer.Choferes;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 
 public class Gestion {
 
+    private ArrayList<Chofer> choferes;
 
+    public void darViajeAChofer(Viaje viaje){
+        ArrayList<Chofer> choferesOnline = sortOnline();
+        ArrayList<Chofer> choferesPosibles = sortCapacity(viaje, choferesOnline);
+        ArrayList<Chofer> choferesPosiblesPorCostoDeImagen = sortByCostoDeImagen(choferesPosibles, viaje);
+        int cantidadDeChoferesQueRechazaron = 0;
+        for (Chofer choferATestear : choferesPosiblesPorCostoDeImagen){
+            if (ofrecerViaje(choferATestear)){
+                choferATestear.setViaje(viaje);
+                break;
+            }
+            cantidadDeChoferesQueRechazaron++;
+        }
+        if (cantidadDeChoferesQueRechazaron == choferesPosiblesPorCostoDeImagen.size()){
+            throw new NoHayChoferesException("No hay chofer disponible para este viaje");
+        }
+    }
 
-    public ArrayList<Chofer> sortOnline(ArrayList<Chofer> choferes){
+    public ArrayList<Chofer> sortOnline(){
         ArrayList<Chofer> choferesOnline = new ArrayList<Chofer>();
         for(Chofer choferATestear: choferes){
             if (choferATestear.disponibilidad()){
@@ -57,5 +75,15 @@ public class Gestion {
         } else {
             return 0;
         }
+    }
+
+    public boolean ofrecerViaje(Chofer chofer){
+        System.out.println("Desea aceptar el viaje? Si o No?");
+        Scanner respuesta = new Scanner(System.in);
+        if(respuesta.hasNext("Si")){
+            return true;
+        }
+        return false;
+
     }
 }
