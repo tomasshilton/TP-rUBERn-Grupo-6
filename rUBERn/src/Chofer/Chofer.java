@@ -21,6 +21,10 @@ public class Chofer {
         choferCoordenas=newCoordenadas;
     }
 
+    public Coordenada getChoferCoordenas() {
+        return choferCoordenas;
+    }
+
     public void setViaje(Viaje viaje){
         this.viaje=viaje;
         ocupar(); //idea

@@ -34,4 +34,9 @@ public class ChoferTest {
         chofer.liberar();
         assertTrue(chofer.disponibilidad());
     }
+
+    @Test
+    public void setChoferCoordTest(){
+
+    }
 }
