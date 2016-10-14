@@ -33,11 +33,19 @@ public class Cliente {
         this.viaje = viaje;
     }
 
-    public void askForTrip(Coordenada destino){
+    public void askForTrip(Coordenada destino){   //al no pasarle la cantidad de pasajers se asume que viaja solo
         askForTrip(destino, 1);
     }
 
-    public void setPosicion(Coordenada posicion) {
+    public void changePosicion(Coordenada posicion) {
         this.posicion = posicion;
     }
+
+
+
+    public void endTrip(){
+        changePosicion(viaje.getHasta());
+        viaje=null;
+    }
+
 }
