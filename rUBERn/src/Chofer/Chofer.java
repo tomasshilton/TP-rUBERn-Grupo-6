@@ -14,7 +14,7 @@ public class Chofer {
 
     public Chofer(Auto choferAuto, Coordenada choferCoordenadas){
         this.choferAuto=choferAuto;
-        this.choferCoordenas=choferCoordenadas;
+        this.choferCoordenas= new Coordenada(choferCoordenadas.getX(),choferCoordenadas.getY());
     }
 
     public void setCoordenadas(Coordenada newCoordenadas){
