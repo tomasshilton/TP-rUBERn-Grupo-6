@@ -14,26 +14,27 @@ public class Gestion {
         this.choferes=choferes;
     }
 
-    public void darViajeAChofer(Viaje viaje){
-        ArrayList<Chofer> choferesOnline = filterOnline();
+    public void darViajeAChofer(Viaje viaje, ArrayList<Chofer> choferesAEvaluar){
+
+        ArrayList<Chofer> choferesOnline = filterOnline(choferesAEvaluar);
         ArrayList<Chofer> choferesPosibles = filterCapacity(viaje, choferesOnline);
-        ArrayList<Chofer> choferesPosiblesPorCostoDeImagen = filterByCostoDeImagen(choferesPosibles, viaje);
-        int cantidadDeChoferesQueRechazaron = 0;
-        for (Chofer choferATestear : choferesPosiblesPorCostoDeImagen){
-            if (ofrecerViaje(choferATestear)){
-                choferATestear.setViaje(viaje);
-                break;
+        ArrayList<Chofer> choferesPosiblesPorCostoDeImagen = sortByCostoDeImagen(choferesPosibles, viaje);
+        Chofer choferATestear = choferesPosiblesPorCostoDeImagen.get(0);
+        if (ofrecerViaje(choferATestear)){
+            choferATestear.setViaje(viaje);
+        } else {
+            choferesAEvaluar.remove(choferATestear);
+            if (choferesAEvaluar.get(0) == null) {
+                throw new NoHayChoferesException("No hay chofer disponible para este viaje");
+            } else{
+                darViajeAChofer(viaje, choferesAEvaluar);
             }
-            cantidadDeChoferesQueRechazaron++;
-        }
-        if (cantidadDeChoferesQueRechazaron == choferesPosiblesPorCostoDeImagen.size()){
-            throw new NoHayChoferesException("No hay chofer disponible para este viaje");
         }
     }
 
-    public ArrayList<Chofer> filterOnline(){
+    private ArrayList<Chofer> filterOnline(ArrayList<Chofer> choferesAEvaluar){
         ArrayList<Chofer> choferesOnline = new ArrayList<Chofer>();
-        for(Chofer choferATestear: choferes){
+        for(Chofer choferATestear: choferesAEvaluar){
             if (choferATestear.disponibilidad()){
                 choferesOnline.add(choferATestear);
             }
@@ -41,7 +42,7 @@ public class Gestion {
         return choferesOnline;
     }
 
-    public ArrayList<Chofer> filterCapacity(Viaje viaje, ArrayList<Chofer> choferesOnline ){
+    private ArrayList<Chofer> filterCapacity(Viaje viaje, ArrayList<Chofer> choferesOnline ){
         ArrayList<Chofer> choferesConCapacidad = new ArrayList<Chofer>();
         int capacidadATestear = viaje.getNumberOfPassenger();
         for(Chofer choferATestear: choferesOnline){
@@ -52,7 +53,7 @@ public class Gestion {
         return choferesConCapacidad;
     }
 
-    public ArrayList<Chofer> filterByCostoDeImagen(ArrayList<Chofer> choferesConCapacidadYOnline, Viaje viaje){
+    private ArrayList<Chofer> sortByCostoDeImagen(ArrayList<Chofer> choferesConCapacidadYOnline, Viaje viaje){
         ArrayList<Chofer> choferesPorCostoDeImagen = new ArrayList<Chofer>();
         Chofer choferConMenorCostoDeImagen = choferesConCapacidadYOnline.get(0);
         while (choferesConCapacidadYOnline.size() > 0) {
@@ -67,11 +68,11 @@ public class Gestion {
         return choferesPorCostoDeImagen;
     }
 
-    public double calcularCostoDeImagen(Chofer chofer, Viaje viaje){
+    private double calcularCostoDeImagen(Chofer chofer, Viaje viaje){
         return (viaje.getDistance()*2)/500 + ((viaje.getDistance()*2)/500)*(chofer.getChoferAuto().getCategoria().getCostoAdicional() / 100);
     }
 
-    public int compararCostoDeImagen(Chofer chofer1, Chofer chofer2, Viaje viaje){
+    private int compararCostoDeImagen(Chofer chofer1, Chofer chofer2, Viaje viaje){
         if (calcularCostoDeImagen(chofer1, viaje) < calcularCostoDeImagen(chofer2, viaje)){
             return 1;
         } else {
@@ -79,7 +80,7 @@ public class Gestion {
         }
     }
 
-    public boolean ofrecerViaje(Chofer chofer){
+    private boolean ofrecerViaje(Chofer chofer){
         System.out.println("Desea aceptar el viaje? Si o No?");
         Scanner respuesta = new Scanner(System.in);
         if(respuesta.hasNext("Si")){
