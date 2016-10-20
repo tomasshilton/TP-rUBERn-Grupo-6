@@ -12,9 +12,9 @@ public class Chofer {
     private Coordenada choferCoordenas;
     private Viaje viaje;
 
-    public Chofer(Auto choferAuto, Coordenada choferCoordenadas){
+    public Chofer(Auto choferAuto, double X, double Y){
         this.choferAuto=choferAuto;
-        this.choferCoordenas= new Coordenada(choferCoordenadas.getX(),choferCoordenadas.getY());
+        this.choferCoordenas= new Coordenada(X,Y);
     }
 
     public void setCoordenadas(Coordenada newCoordenadas){
