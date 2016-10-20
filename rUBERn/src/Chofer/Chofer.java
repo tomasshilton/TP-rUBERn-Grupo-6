@@ -13,7 +13,7 @@ public class Chofer {
     private Viaje viaje;
 
     public Chofer(Auto choferAuto, double X, double Y){
-        this.choferAuto=choferAuto;
+        this.choferAuto =choferAuto;
         this.choferCoordenas= new Coordenada(X,Y);
     }
 
