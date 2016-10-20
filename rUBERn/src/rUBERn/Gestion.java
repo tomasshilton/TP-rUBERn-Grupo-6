@@ -10,6 +10,10 @@ public class Gestion {
 
     private ArrayList<Chofer> choferes;
 
+    public Gestion(ArrayList<Chofer> choferes){
+        this.choferes=choferes;
+    }
+
     public void darViajeAChofer(Viaje viaje){
         ArrayList<Chofer> choferesOnline = filterOnline();
         ArrayList<Chofer> choferesPosibles = filterCapacity(viaje, choferesOnline);
