@@ -14,21 +14,22 @@ public class Gestion {
         this.choferes=choferes;
     }
 
-    public void darViajeAChofer(Viaje viaje, ArrayList<Chofer> choferesAEvaluar){
-
-        ArrayList<Chofer> choferesOnline = filterOnline(choferesAEvaluar);
-        ArrayList<Chofer> choferesPosibles = filterCapacity(viaje, choferesOnline);
-        ArrayList<Chofer> choferesPosiblesPorCostoDeImagen = sortByCostoDeImagen(choferesPosibles, viaje);
-        Chofer choferATestear = choferesPosiblesPorCostoDeImagen.get(0);
-        if (ofrecerViaje(choferATestear)){
-            choferATestear.setViaje(viaje);
-        } else {
-            choferesAEvaluar.remove(choferATestear);
-            if (choferesAEvaluar.get(0) == null) {
-                throw new NoHayChoferesException("No hay chofer disponible para este viaje");
-            } else{
-                darViajeAChofer(viaje, choferesAEvaluar);
+    public void darViajeAChofer(Viaje viaje){
+        ArrayList<Chofer> choferesAEvaluar = choferes;
+        while (choferesAEvaluar.get(0) != null) {
+            ArrayList<Chofer> choferesOnline = filterOnline(choferesAEvaluar);
+            ArrayList<Chofer> choferesPosibles = filterCapacity(viaje, choferesOnline);
+            ArrayList<Chofer> choferesPosiblesPorCostoDeImagen = sortByCostoDeImagen(choferesPosibles, viaje);
+            Chofer choferATestear = choferesPosiblesPorCostoDeImagen.get(0);
+            if (ofrecerViaje(choferATestear)) {
+                choferATestear.setViaje(viaje);
+                break;
+            } else {
+                choferesAEvaluar.remove(choferATestear);
             }
+        }
+        if (choferesAEvaluar.get(0) == null) {
+            throw new NoHayChoferesException("No hay chofer disponible para este viaje");
         }
     }
 
