@@ -2,8 +2,6 @@ package rUBERn;
 
 import Chofer.Chofer;
 
-import Chofer.Choferes;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -13,9 +11,9 @@ public class Gestion {
     private ArrayList<Chofer> choferes;
 
     public void darViajeAChofer(Viaje viaje){
-        ArrayList<Chofer> choferesOnline = sortOnline();
-        ArrayList<Chofer> choferesPosibles = sortCapacity(viaje, choferesOnline);
-        ArrayList<Chofer> choferesPosiblesPorCostoDeImagen = sortByCostoDeImagen(choferesPosibles, viaje);
+        ArrayList<Chofer> choferesOnline = filterOnline();
+        ArrayList<Chofer> choferesPosibles = filterCapacity(viaje, choferesOnline);
+        ArrayList<Chofer> choferesPosiblesPorCostoDeImagen = filterByCostoDeImagen(choferesPosibles, viaje);
         int cantidadDeChoferesQueRechazaron = 0;
         for (Chofer choferATestear : choferesPosiblesPorCostoDeImagen){
             if (ofrecerViaje(choferATestear)){
@@ -29,7 +27,7 @@ public class Gestion {
         }
     }
 
-    public ArrayList<Chofer> sortOnline(){
+    public ArrayList<Chofer> filterOnline(){
         ArrayList<Chofer> choferesOnline = new ArrayList<Chofer>();
         for(Chofer choferATestear: choferes){
             if (choferATestear.disponibilidad()){
@@ -39,7 +37,7 @@ public class Gestion {
         return choferesOnline;
     }
 
-    public ArrayList<Chofer> sortCapacity(Viaje viaje,ArrayList<Chofer> choferesOnline ){
+    public ArrayList<Chofer> filterCapacity(Viaje viaje, ArrayList<Chofer> choferesOnline ){
         ArrayList<Chofer> choferesConCapacidad = new ArrayList<Chofer>();
         int capacidadATestear = viaje.getNumberOfPassenger();
         for(Chofer choferATestear: choferesOnline){
@@ -50,7 +48,7 @@ public class Gestion {
         return choferesConCapacidad;
     }
 
-    public ArrayList<Chofer> sortByCostoDeImagen(ArrayList<Chofer> choferesConCapacidadYOnline, Viaje viaje){
+    public ArrayList<Chofer> filterByCostoDeImagen(ArrayList<Chofer> choferesConCapacidadYOnline, Viaje viaje){
         ArrayList<Chofer> choferesPorCostoDeImagen = new ArrayList<Chofer>();
         Chofer choferConMenorCostoDeImagen = choferesConCapacidadYOnline.get(0);
         while (choferesConCapacidadYOnline.size() > 0) {
