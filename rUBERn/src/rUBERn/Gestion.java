@@ -55,11 +55,24 @@ public class Gestion {
     }
 
     public ArrayList<Chofer> sortByCostoDeImagen(ArrayList<Chofer> choferesConCapacidadYOnline, Viaje viaje){
-       ArrayList<Chofer> choferesPorCostoDeImagen = new ArrayList<Chofer>();
+        ArrayList<Chofer> ret = new ArrayList<>();
+        Chofer next;
+        for(Chofer c:choferesConCapacidadYOnline){
+            next = choferesConCapacidadYOnline.get(choferesConCapacidadYOnline.indexOf(c)+1);
+            if(calcularCostoDeImagen(c,viaje)>calcularCostoDeImagen(next,viaje)){
+                ret.add(choferesConCapacidadYOnline.indexOf(c)+1,c);
+                ret.add(choferesConCapacidadYOnline.indexOf(c),next);
+            }
+
+        }
+        return ret;
+
+
+       /* ArrayList<Chofer> choferesPorCostoDeImagen = new ArrayList<Chofer>();
         Chofer choferConMenorCostoDeImagen = choferesConCapacidadYOnline.get(0);
         while (choferesConCapacidadYOnline.get(0)!=null){
             for (Chofer choferATestear : choferesConCapacidadYOnline) {
-                if (compararCostoDeImagen(choferATestear, choferConMenorCostoDeImagen, viaje)) {
+                if (compararCostoDeImagen(choferATestear, choferConMenorCostoDeImagen, viaje) == 1) {
                     choferConMenorCostoDeImagen = choferATestear;
                 }
             }
@@ -67,15 +80,19 @@ public class Gestion {
             choferesConCapacidadYOnline.remove(choferConMenorCostoDeImagen);
         }
         return choferesPorCostoDeImagen;
-
+        */
     }
 
     public double calcularCostoDeImagen(Chofer chofer, Viaje viaje){
         return (viaje.getDistance()*2)/500 + ((viaje.getDistance()*2)/500)*(chofer.getChoferAuto().getCategoria().getCostoAdicional() / 100);
     }
 
-    public boolean compararCostoDeImagen(Chofer chofer1, Chofer chofer2, Viaje viaje){
-        return (calcularCostoDeImagen(chofer1, viaje) < calcularCostoDeImagen(chofer2, viaje));
+    public int compararCostoDeImagen(Chofer chofer1, Chofer chofer2, Viaje viaje){
+        if (calcularCostoDeImagen(chofer1, viaje) < calcularCostoDeImagen(chofer2, viaje)){
+            return 1;
+        } else {
+            return 0;
+        }
     }
 
     private boolean ofrecerViaje(Chofer chofer){
