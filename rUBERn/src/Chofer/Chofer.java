@@ -3,6 +3,8 @@ package Chofer;
 import rUBERn.Viaje;
 import rUBERn.Coordenada;
 
+import java.util.Scanner;
+
 
 public class Chofer {
 
@@ -62,7 +64,14 @@ public class Chofer {
         return choferAuto;
     }
 
-    public void evaluateOferta(){
+    public boolean evaluateOferta(Viaje viaje ){
+        System.out.println("Desea aceptar el viaje? Si o No?");
+        Scanner respuesta = new Scanner(System.in);
+        if(respuesta.hasNext("Si")){
+            setViaje(viaje);
+            return true;
+        }
+        return false;
 
     }
 
