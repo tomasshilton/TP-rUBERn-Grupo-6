@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class Gestion {
 
     private ArrayList<Chofer> choferes;
+    private ArrayList<Chofer> ret = new ArrayList<>();
 
     public Gestion(ArrayList<Chofer> choferes){
         this.choferes=choferes;
@@ -54,10 +55,12 @@ public class Gestion {
         return choferesConCapacidad;
     }
 
-    public ArrayList<Chofer> sortByCostoDeImagen(ArrayList<Chofer> choferesConCapacidadYOnline, Viaje viaje){
-       ArrayList<Chofer> choferesPorCostoDeImagen = new ArrayList<Chofer>();
-        Chofer choferConMenorCostoDeImagen = choferesConCapacidadYOnline.get(0);
-        while (choferesConCapacidadYOnline.get(0)!=null){
+    public ArrayList<Chofer> sortByCostoDeImagen(ArrayList<Chofer> choferesConCapacidadYOnline, Viaje viaje) {
+
+        ArrayList<Chofer> choferesPorCostoDeImagen = new ArrayList<Chofer>();
+
+        while (choferesConCapacidadYOnline.size() > 0){
+            Chofer choferConMenorCostoDeImagen = choferesConCapacidadYOnline.get(0);
             for (Chofer choferATestear : choferesConCapacidadYOnline) {
                 if (compararCostoDeImagen(choferATestear, choferConMenorCostoDeImagen, viaje)) {
                     choferConMenorCostoDeImagen = choferATestear;
