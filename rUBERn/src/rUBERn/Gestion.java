@@ -22,7 +22,7 @@ public class Gestion {
             ArrayList<Chofer> choferesPosibles = filterCapacity(viaje, choferesOnline);
             ArrayList<Chofer> choferesPosiblesPorCostoDeImagen = sortByCostoDeImagen(choferesPosibles, viaje);
             Chofer choferATestear = choferesPosiblesPorCostoDeImagen.get(0);
-            if (ofrecerViaje(choferATestear)) {
+            if (choferATestear.evaluateOferta(viaje)) {
                 choferATestear.setViaje(viaje);
                 break;
             } else {
@@ -79,15 +79,5 @@ public class Gestion {
 
     public boolean compararCostoDeImagen(Chofer chofer1, Chofer chofer2, Viaje viaje){
         return (calcularCostoDeImagen(chofer1, viaje) < calcularCostoDeImagen(chofer2, viaje));
-    }
-
-    private boolean ofrecerViaje(Chofer chofer){
-        System.out.println("Desea aceptar el viaje? Si o No?");
-        Scanner respuesta = new Scanner(System.in);
-        if(respuesta.hasNext("Si")){
-            return true;
-        }
-        return false;
-
     }
 }

@@ -64,8 +64,9 @@ public class Chofer {
         return choferAuto;
     }
 
-    public boolean evaluateOferta(Viaje viaje ){
+    public boolean evaluateOferta(Viaje viaje){
         System.out.println("Desea aceptar el viaje? Si o No?");
+        /**AGREGAAR LOS DATOS DEL VIAJE PARA CONSOLA*/
         Scanner respuesta = new Scanner(System.in);
         if(respuesta.hasNext("Si")){
             setViaje(viaje);
