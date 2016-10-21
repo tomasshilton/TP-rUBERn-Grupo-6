@@ -16,7 +16,7 @@ public class Cliente {
         return viaje;
     }
 
-    public Coordenada getPosicion() {
+    public Coordenada getPosition() {
         return posicion;
     }
 
@@ -37,7 +37,7 @@ public class Cliente {
         askForTrip(destino, 1);
     }
 
-    public void setPosicion(Coordenada posicion) {
+    public void setPosition(Coordenada posicion) {
         this.posicion = posicion;
     }
 

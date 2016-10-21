@@ -29,7 +29,7 @@ public class ClienteTest {
         assertFalse(firstClient.getViaje().equals(null));
         assertEquals(1,firstTrip.getNumberOfPassenger());
 
-        assertFalse(firstClient.getPosicion()==hasta);
+        assertFalse(firstClient.getPosition()==hasta);
     }
 
 }

@@ -33,7 +33,7 @@ public class Gestion {
         }
     }
 
-    private ArrayList<Chofer> filterOnline(ArrayList<Chofer> choferesAEvaluar){
+    public ArrayList<Chofer> filterOnline(ArrayList<Chofer> choferesAEvaluar){
         ArrayList<Chofer> choferesOnline = new ArrayList<Chofer>();
         for(Chofer choferATestear: choferesAEvaluar){
             if (choferATestear.disponibilidad()){
@@ -43,7 +43,7 @@ public class Gestion {
         return choferesOnline;
     }
 
-    private ArrayList<Chofer> filterCapacity(Viaje viaje, ArrayList<Chofer> choferesOnline ){
+    public ArrayList<Chofer> filterCapacity(Viaje viaje, ArrayList<Chofer> choferesOnline ){
         ArrayList<Chofer> choferesConCapacidad = new ArrayList<Chofer>();
         int capacidadATestear = viaje.getNumberOfPassenger();
         for(Chofer choferATestear: choferesOnline){
@@ -54,10 +54,10 @@ public class Gestion {
         return choferesConCapacidad;
     }
 
-    private ArrayList<Chofer> sortByCostoDeImagen(ArrayList<Chofer> choferesConCapacidadYOnline, Viaje viaje){
-        ArrayList<Chofer> choferesPorCostoDeImagen = new ArrayList<Chofer>();
+    public ArrayList<Chofer> sortByCostoDeImagen(ArrayList<Chofer> choferesConCapacidadYOnline, Viaje viaje){
+       /* ArrayList<Chofer> choferesPorCostoDeImagen = new ArrayList<Chofer>();
         Chofer choferConMenorCostoDeImagen = choferesConCapacidadYOnline.get(0);
-        while (choferesConCapacidadYOnline.size() > 0) {
+        while (choferesConCapacidadYOnline.get(0)!=null){
             for (Chofer choferATestear : choferesConCapacidadYOnline) {
                 if (compararCostoDeImagen(choferATestear, choferConMenorCostoDeImagen, viaje) == 1) {
                     choferConMenorCostoDeImagen = choferATestear;
@@ -67,13 +67,14 @@ public class Gestion {
             choferesConCapacidadYOnline.remove(choferConMenorCostoDeImagen);
         }
         return choferesPorCostoDeImagen;
+        */
     }
 
-    private double calcularCostoDeImagen(Chofer chofer, Viaje viaje){
+    public double calcularCostoDeImagen(Chofer chofer, Viaje viaje){
         return (viaje.getDistance()*2)/500 + ((viaje.getDistance()*2)/500)*(chofer.getChoferAuto().getCategoria().getCostoAdicional() / 100);
     }
 
-    private int compararCostoDeImagen(Chofer chofer1, Chofer chofer2, Viaje viaje){
+    public int compararCostoDeImagen(Chofer chofer1, Chofer chofer2, Viaje viaje){
         if (calcularCostoDeImagen(chofer1, viaje) < calcularCostoDeImagen(chofer2, viaje)){
             return 1;
         } else {

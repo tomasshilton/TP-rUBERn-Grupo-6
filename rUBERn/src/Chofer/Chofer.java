@@ -37,6 +37,7 @@ public class Chofer {
         viaje = null;
 
     }
+
     public void finalizarJordana(){
         trabajando=false;
     }
@@ -59,6 +60,10 @@ public class Chofer {
 
     public Auto getChoferAuto(){
         return choferAuto;
+    }
+
+    public void evaluateOferta(){
+
     }
 
 }
