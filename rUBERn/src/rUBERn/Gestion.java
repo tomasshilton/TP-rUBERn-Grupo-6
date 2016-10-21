@@ -55,6 +55,35 @@ public class Gestion {
     }
 
     public ArrayList<Chofer> sortByCostoDeImagen(ArrayList<Chofer> choferesConCapacidadYOnline, Viaje viaje){
+        ArrayList<Chofer> ret = new ArrayList<>();
+        Chofer next;
+        for(Chofer c:choferesConCapacidadYOnline){
+            next = choferesConCapacidadYOnline.get(choferesConCapacidadYOnline.indexOf(c)+1);
+            if(calcularCostoDeImagen(c,viaje)>calcularCostoDeImagen(next,viaje)){
+                ret.add(choferesConCapacidadYOnline.indexOf(c)+1,c);
+                ret.add(choferesConCapacidadYOnline.indexOf(c),next);
+            }
+
+        }
+        return ret;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
        /* ArrayList<Chofer> choferesPorCostoDeImagen = new ArrayList<Chofer>();
         Chofer choferConMenorCostoDeImagen = choferesConCapacidadYOnline.get(0);
         while (choferesConCapacidadYOnline.get(0)!=null){
