@@ -8,6 +8,8 @@ import java.util.Scanner;
 
 public class Chofer {
 
+    // aplicar interfaces de State y saca los boolean
+
     private Auto choferAuto;
     private boolean trabajando= true;
     private boolean libre = true;

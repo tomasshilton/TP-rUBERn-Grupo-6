@@ -75,11 +75,33 @@ public class GestionTest {
         choferes.add(chofer3);
 
         Gestion gestion = new Gestion(choferes);
-
         ArrayList<Chofer> choferesTester = gestion.sortByCostoDeImagen(choferes,viaje);
 
         assertTrue(chofer1.equals(choferesTester.get(2)));
+    }
+    @Test
+    public void sortByCostoDeImagenTestPorDistancia(){
+        ArrayList<Chofer> choferes = new ArrayList<>();
 
+        Categoria cat4 = new Categoria("cat1", 0);
+        Auto car4 = new Auto("abs", "abs ", 2, cat4);
+        Chofer chofer4 = new Chofer(car4, 5, 5);
+        Categoria cat5 = new Categoria("cat2", 0);
+        Auto car5 = new Auto("abs", "abs ", 4, cat5);
+        Chofer chofer5 = new Chofer(car5, 6, 6);
+        Categoria cat6 = new Categoria("cat3", 0);
+        Auto car6 = new Auto("abs", "abs ", 6, cat6);
+        Chofer chofer6 = new Chofer(car6, 2, 2);
 
+        choferes.add(chofer4);
+        choferes.add(chofer5);
+        choferes.add(chofer6);
+
+        Gestion gestion = new Gestion(choferes);
+        ArrayList<Chofer> choferesTester = gestion.sortByCostoDeImagen(choferes,viaje);
+        for (Chofer imprimir : choferesTester){
+            System.out.print(imprimir.getChoferCoordenas().getX()+"\n");
+        }
+        assertTrue(chofer6.equals(choferesTester.get(0)));
     }
 }
