@@ -15,10 +15,12 @@ public class Chofer {
     private boolean libre = true;
     private Coordenada choferCoordenas;
     private Viaje viaje;
+    private String id;
 
-    public Chofer(Auto choferAuto, double X, double Y){
+    public Chofer(Auto choferAuto, double X, double Y, String id){
         this.choferAuto =choferAuto;
         this.choferCoordenas= new Coordenada(X,Y);
+        this.id = id;
     }
 
     public void setCoordenadas(Coordenada newCoordenadas){
