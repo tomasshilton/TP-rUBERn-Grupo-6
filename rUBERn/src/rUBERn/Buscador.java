@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class Gestion {
+public class Buscador {
 
     private ArrayList<Chofer> choferes;
 
-    public Gestion(ArrayList<Chofer> choferes){
+    public Buscador(ArrayList<Chofer> choferes){
         this.choferes=choferes;
     }
 
@@ -81,15 +81,14 @@ public class Gestion {
     }
 
     public double calcularCostoDeImagen(Chofer chofer, Viaje viaje){
-        return (getDistance(viaje)*2)/500 + ((getDistance(viaje)*2)/500)*(chofer.getChoferAuto().getCategoria().getCostoAdicional() / 100);
+        return (getDistance(viaje, chofer)*2)/500 + ((getDistance(viaje, chofer)*2)/500)*(chofer.getChoferAuto().getCategoria().getCostoAdicional() / 100);
     }
 
     public boolean compararCostoDeImagen(Chofer chofer1, Chofer chofer2, Viaje viaje){
         return (calcularCostoDeImagen(chofer1, viaje) < calcularCostoDeImagen(chofer2, viaje));
     }
 
-    public double getDistance(Viaje viaje){
-
-
+    public double getDistance(Viaje viaje, Chofer chofer){
+        return (Math.sqrt(Math.pow(viaje.getDesde().getX()-chofer.getChoferCoordenas().getX(),2.0)+Math.pow(viaje.getDesde().getY()-chofer.getChoferCoordenas().getY(),2)));
     }
 }

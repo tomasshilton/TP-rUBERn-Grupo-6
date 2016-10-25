@@ -54,4 +54,8 @@ public class Viaje {
     public Coordenada getDestino() {
         return destino;
     }
+
+    public Coordenada getDesde() {
+        return desde;
+    }
 }
