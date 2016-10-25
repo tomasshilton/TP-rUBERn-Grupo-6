@@ -7,9 +7,12 @@ public class Cliente {
 
     private Viaje viaje;
     private Coordenada posicion;
+    private String id;
 
-    public Cliente(Coordenada posicion){
+    public Cliente(String insertID, Coordenada posicion){
         this.posicion = posicion;
+        this.id=insertID;
+
     }
 
     public Viaje getViaje() {
