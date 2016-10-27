@@ -47,8 +47,12 @@ public class Chofer {
 
     }
 
-    public void finalizarJordana(){
+    public void finalizarJornada(){
         trabajando=false;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public void iniciarJornada(){

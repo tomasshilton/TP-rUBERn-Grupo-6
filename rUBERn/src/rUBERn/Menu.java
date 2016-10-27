@@ -26,7 +26,7 @@ public class Menu {
 
         while (running) {
 
-            System.out.print("Cliente:\n    1. Pedir viaje\n \nChofer:\n    2. Completar viaje\n \nrUBERn:\n    3. Nuevo cliente \n   0. Salir");
+            System.out.print("Cliente:\n    1. Pedir viaje\n \nChofer:\n    2. Completar viaje\n \nrUBERn:\n    3. finalizar jornada \n   0. Salir");
             System.out.println(" \nIngrese un comando");
             Scanner input = new Scanner(System.in);
             int comando = input.nextInt();
@@ -52,12 +52,19 @@ public class Menu {
                     System.out.println("Cuantos pasajeros son?");
                     Scanner cantidad=new Scanner(System.in);
                     int cant = cantidad.nextInt();
-                    controlador.getCliente(cliente).setViaje(new Viaje(cliente.getPosition(),new Coordenada(destinoX,destinoY),cant));
+                    controlador.getCliente(clienteID).setViaje(new Viaje(cliente.getPosition(),new Coordenada(destinoX,destinoY),cant));
                     break;
                 case 2:
-                    System.out.println("viaje2");
+                    System.out.println("ingrese ID del chofer");
+                    Scanner idchofer = new Scanner(System.in);
+                    String choferID = idchofer.next();
+                    controlador.getChofer(choferID).terminarViaje();
                     break;
                 case 3:
+                    System.out.println("ingrese ID del chofer");
+                    Scanner idChofer = new Scanner(System.in);
+                    String choferId = idChofer.next();
+                    controlador.getChofer(choferId).finalizarJornada();
                     break;
                 case 4:
                     System.out.println("viaje4");
