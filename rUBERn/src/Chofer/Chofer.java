@@ -1,5 +1,8 @@
 package Chofer;
 
+import Chofer.OfertaDeViaje.AceptarOferta;
+import Chofer.OfertaDeViaje.OfertaDeViaje;
+import Chofer.OfertaDeViaje.RechazarOferta;
 import rUBERn.Viaje;
 import rUBERn.Coordenada;
 
@@ -69,18 +72,49 @@ public class Chofer {
     }
 
     public boolean evaluateOferta(Viaje viaje){
-        System.out.println("Desea aceptar el viaje? Si o No?");
         /**AGREGAAR LOS DATOS DEL VIAJE PARA CONSOLA*/
+
+        System.out.println("Desea aceptar el viaje?"+"\n"+"1)Aceptar"+" \n"+"2)Rechazar");
+
         Scanner respuesta = new Scanner(System.in);
-        if(respuesta.hasNext("Si")){
+        if(respuesta.hasNext("Aceptar")){
             setViaje(viaje);
             return true;
+        }
+        else if(!(respuesta.hasNext("Rechazar"))){
+            System.out.println("Ingrese una opcion correcta.");
+            evaluateOferta(viaje);
         }
         return false;
 
     }
 
-    public String getId() {
-        return id;
+    public boolean evaluateOferta2(Viaje viaje){
+        OfertaDeViaje oferta;
+        System.out.println("A llegagado una solicitud de viaje.¿Que desea hacer?"+"\n"
+                +"1. Pedir informacion del viaje"+"\n"
+                +"2.Aceptar Viaje"+"\n"
+                +"3.Rechazar Viaje");
+        Scanner input = new Scanner(System.in);
+        int comando = input.nextInt();
+        switch (comando){
+            case 1:
+                System.out.println("Punto de encuentro: ("+viaje.getDesde().getX()+","+viaje.getDesde().getY()+")" +"\n"
+                        +"Punto de Destino: ("+viaje.getDestino().getX()+","+viaje.getDestino().getY()+")" +"\n"
+                        +"Cantidad de personas: "+viaje.getNumberOfPassenger());
+                evaluateOferta2(viaje);
+                break;
+            case 2:
+                oferta = new AceptarOferta(viaje);
+                return oferta.responderOferta();
+            case 3:
+                oferta = new RechazarOferta(viaje);
+                return oferta.responderOferta();
+            default:
+                evaluateOferta2(viaje);
+        }
+        return false;
     }
+
+
 }
