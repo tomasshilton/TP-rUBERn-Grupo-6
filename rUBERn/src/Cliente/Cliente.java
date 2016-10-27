@@ -23,20 +23,11 @@ public class Cliente {
         return posicion;
     }
 
-    public void setViaje(Viaje viaje) {
-        if(viaje.equals(null))
-            this.viaje = viaje;
-        else
-            throw new ViajeEnProgresoException("Uds. todavia se encuentra en viaje a su destino ("+posicion.getX()+","+posicion.getY()+")"+
-                    "\n"+". Una vez finalizado puede pedir uno nuevamente");
-    }
-
     public void askForTrip(Coordenada destino,int numbersOfPassenger){
-        Viaje viaje = new Viaje(posicion, destino,numbersOfPassenger);
-        this.viaje = viaje;
+        viaje = new Viaje(posicion, destino,numbersOfPassenger);
     }
 
-    public void askForTrip(Coordenada destino){
+    public void askForTripForOnePerson(Coordenada destino){
         askForTrip(destino, 1);
     }
 
