@@ -65,10 +65,15 @@ public class Menu {
                     controlador.getChofer(choferId).finalizarJornada();
                     break;
                 case 4:
-                    System.out.println("viaje4");
+                    System.out.println("ingrese ID del chofer");
+                    Scanner otroIdChofer = new Scanner(System.in);
+                    String otroChoferId = otroIdChofer.next();
+                    controlador.getChofer(otroChoferId).iniciarJornada();
+                    break;
+                case 5:
                     break;
                 case 0:
-                    System.out.println("Exiting");
+                    System.out.println("Saliendo");
                     running=false;
                 default:
                     System.out.println("Por favor ingrese un comando correcto dentro del menú.");
