@@ -18,15 +18,13 @@ public class Menu {
         choferes.add(chofer3);
 
         Controlador controlador = new Controlador(choferes);
-        ArrayList<Cliente> clientes = new ArrayList<>();
-
-
-
-
 
         while (running) {
 
-            System.out.print("Cliente:\n    1. Pedir viaje\n \nChofer:\n    2. Completar viaje\n \nrUBERn:\n    3. finalizar jornada \n   0. Salir");
+            System.out.print("Cliente:\n    1. Pedir viaje\n" +
+                    " \nChofer:\n    2. Completar viaje\n " +
+                    "\nrUBERn:\n    3. finalizar jornada \n   " +
+                    "0. Salir");
             System.out.println(" \nIngrese un comando");
             Scanner input = new Scanner(System.in);
             int comando = input.nextInt();
@@ -69,18 +67,11 @@ public class Menu {
                 case 4:
                     System.out.println("viaje4");
                     break;
-                case 5:
-                    System.out.println("viaje5");
-                    break;
-                case 6:
-                    System.out.println("viaje6");
-                    break;
-                case 7:
-                    System.out.println("viaje7");
-                    break;
                 case 0:
                     System.out.println("Exiting");
                     running=false;
+                default:
+                    System.out.println("Por favor ingrese un comando correcto dentro del menú.");
 
             }
         }
