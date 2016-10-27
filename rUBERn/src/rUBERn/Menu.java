@@ -1,38 +1,81 @@
 package rUBERn;
+import Cliente.Cliente;
+import Chofer.*;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menu {
+
     public static void main(String[] args) {
-        System.out.print("Cliente:\n    1. Pedir viaje\n \nChofer:\n    2. Completar viaje\n \nrUBERn:\n    3. Nuevo cliente ");
-        System.out.println(" \nIngrese un comando");
-        Scanner input = new Scanner(System.in);
-        int comando = input.nextInt();
+        boolean running = true;
+        Chofer chofer1=new Chofer(new Auto("marca1","modelo1",2,new Categoria("categoria1",1)),0,0,"id");
+        Chofer chofer2=new Chofer(new Auto("marca2","modelo2",3,new Categoria("categoria2",2)),0,0,"id");
+        Chofer chofer3=new Chofer(new Auto("marca3","modelo3",1,new Categoria("categoria3",3)),0,0,"id");
+        ArrayList<Chofer> choferes = new ArrayList<>();
+        choferes.add(chofer1);
+        choferes.add(chofer2);
+        choferes.add(chofer3);
 
-        switch (comando){
-            case 1:
-                System.out.println("viaje1");
-                break;
-            case 2:
-                System.out.println("viaje2");
-                break;
-            case 3:
-                System.out.println("viaje3");
-                break;
-            case 4:
-                System.out.println("viaje4");
-                break;
-            case 5:
-                System.out.println("viaje5");
-                break;
-            case 6:
-                System.out.println("viaje6");
-                break;
-            case 7:
-                System.out.println("viaje7");
-                break;
+        Controlador controlador = new Controlador(choferes);
+        ArrayList<Cliente> clientes = new ArrayList<>();
 
+
+
+
+
+        while (running) {
+
+            System.out.print("Cliente:\n    1. Pedir viaje\n \nChofer:\n    2. Completar viaje\n \nrUBERn:\n    3. Nuevo cliente \n   0. Salir");
+            System.out.println(" \nIngrese un comando");
+            Scanner input = new Scanner(System.in);
+            int comando = input.nextInt();
+
+
+            switch (comando){
+                case 1:
+                    System.out.println("Ingrese su ubicacion (X, Y)");
+                    Scanner cX = new Scanner(System.in);
+                    int coordenadaX = cX.nextInt();
+                    Scanner cY = new Scanner(System.in);
+                    int coordenadaY = cY.nextInt();
+                    System.out.println("Ingrese su DNI");
+                    Scanner id = new Scanner(System.in);
+                    String clienteID = id.next();
+                    Cliente cliente = new Cliente(clienteID,new Coordenada(coordenadaX,coordenadaY));
+                    controlador.nuevoCliente(cliente);
+                    System.out.println("Ingrese su destino (X,Y)");
+                    Scanner dX = new Scanner(System.in);
+                    int destinoX = dX.nextInt();
+                    Scanner dY = new Scanner(System.in);
+                    int destinoY = dY.nextInt();
+                    System.out.println("Cuantos pasajeros son?");
+                    Scanner cantidad=new Scanner(System.in);
+                    int cant = cantidad.nextInt();
+                    controlador.getCliente(cliente).setViaje(new Viaje(cliente.getPosition(),new Coordenada(destinoX,destinoY),cant));
+                    break;
+                case 2:
+                    System.out.println("viaje2");
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    System.out.println("viaje4");
+                    break;
+                case 5:
+                    System.out.println("viaje5");
+                    break;
+                case 6:
+                    System.out.println("viaje6");
+                    break;
+                case 7:
+                    System.out.println("viaje7");
+                    break;
+                case 0:
+                    System.out.println("Exiting");
+                    running=false;
+
+            }
         }
-
     }
 }

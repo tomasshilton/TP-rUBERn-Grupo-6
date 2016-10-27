@@ -44,5 +44,7 @@ public class Cliente {
         this.posicion = posicion;
     }
 
-
+    public String getId() {
+        return id;
+    }
 }

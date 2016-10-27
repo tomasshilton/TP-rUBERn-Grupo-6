@@ -36,12 +36,13 @@ public class Controlador {
         return clientes;
     }
 
-    public Cliente getCliente(Cliente clienteBuscado){
-        for(Cliente clienteATestear : clientes){
-            if (clienteBuscado.equals(clienteATestear)){
-                return clienteATestear;
-            } else {
-                throw new NoSeEncontroElClienteException("El cliente buscado no se encontro");
+    public Cliente getCliente(String id){
+        for(Cliente cliente : clientes){
+            if(cliente.getId().equals(id)){
+                return cliente;
+            }
+            if((clientes.indexOf(cliente)==clientes.size()-1)&&(cliente.getId().equals(id))){
+                throw new NoSeEncontroElClienteException("no se pudo hayar el cliente buscado");
             }
         }
     }
