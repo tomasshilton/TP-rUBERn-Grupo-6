@@ -52,7 +52,7 @@ public class Menu {
                     System.out.println("Cuantos pasajeros son?");
                     Scanner cantidad=new Scanner(System.in);
                     int cant = cantidad.nextInt();
-                    controlador.getCliente(clienteID).setViaje(new Viaje(cliente.getPosition(),new Coordenada(destinoX,destinoY),cant));
+                    controlador.getCliente(clienteID).askForTrip(new Coordenada(destinoX,destinoY),cant);
                     break;
                 case 2:
                     System.out.println("ingrese ID del chofer");
