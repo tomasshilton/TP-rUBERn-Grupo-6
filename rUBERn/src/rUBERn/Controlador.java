@@ -36,22 +36,24 @@ public class Controlador {
         return clientes;
     }
 
-    public Cliente getCliente(Cliente clienteBuscado){
-        for(Cliente clienteATestear : clientes){
-            if (clienteBuscado.equals(clienteATestear)){
-                return clienteATestear;
-            } else {
-                throw new NoSeEncontroElClienteException("El cliente buscado no se encontro");
+    public Cliente getCliente(String id){
+        for(Cliente cliente : clientes){
+            if(cliente.getId().equals(id)){
+                return cliente;
+            }
+            if((clientes.indexOf(cliente)==clientes.size()-1)&&!(cliente.getId().equals(id))){
+                throw new NoSeEncontroElClienteException("no se pudo hayar el cliente buscado");
             }
         }
     }
 
-    public Chofer getChofer(Chofer choferBuscado){
-        for(Chofer choferATestear : choferes){
-            if (choferBuscado.equals(choferATestear)){
-                return choferATestear;
-            } else {
-                throw new NoSeEncontroElChoferException("El chofer buscado no se encontro");
+    public Chofer getChofer(String id){
+        for(Chofer chofer : choferes){
+            if(chofer.getId().equals(id)){
+                return chofer;
+            }
+            if((choferes.indexOf(chofer)==choferes.size()-1)&&!(chofer.getId().equals(id))){
+                throw new NoSeEncontroElClienteException("no se pudo hayar el chofer buscado");
             }
         }
     }
