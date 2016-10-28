@@ -46,6 +46,7 @@ public class Menu {
                     System.out.println("Ingrese su DNI");
                     Scanner id = new Scanner(System.in);
                     String clienteID = id.next();
+                    /**si usamos hasgmaps, el contains verifique si el cliente esta todavia. si esta, sigue viajando exception, y sino que lo agregue*/
                     Cliente cliente = new Cliente(clienteID,new Coordenada(coordenadaX,coordenadaY));
                     controlador.nuevoCliente(cliente);
                     System.out.println("Ingrese su destino (X,Y)");
@@ -64,6 +65,7 @@ public class Menu {
                     Scanner idchofer = new Scanner(System.in);
                     String choferID = idchofer.next();
                     controlador.getChofer(choferID).terminarViaje();
+                    /**remover al cliente de la lista de clientes al finalizar el viaje. si usamos hashmap para viajes le pasamos un key al viaje para identificar cliente*/
                     break;
                 case 3:
                     System.out.println("ingrese ID del chofer");
