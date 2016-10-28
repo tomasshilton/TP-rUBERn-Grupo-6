@@ -36,7 +36,7 @@ public class Menu {
             int comando = input.nextInt();
 
 
-            switch (comando){
+            switch (comando){ //barra barra
                 case 1:
                     System.out.println("Ingrese su ubicacion (X, Y)");
                     Scanner cX = new Scanner(System.in);
