@@ -1,5 +1,8 @@
 package Chofer;
 
+import Chofer.Estados.Estado;
+import Chofer.Estados.Online;
+import Chofer.Estados.Working;
 import Chofer.OfertaDeViaje.AceptarOferta;
 import Chofer.OfertaDeViaje.OfertaDeViaje;
 import Chofer.OfertaDeViaje.RechazarOferta;
@@ -36,39 +39,18 @@ public class Chofer {
 
     public void setViaje(Viaje viaje){
         this.viaje=viaje;
-        ocupar(); //idea
+        setEstado(new Working()); //idea
     }
 
     public void terminarViaje(){
+        setEstado(new Online());
         setCoordenadas(viaje.getDestino());
-        liberar();
-        //metodo que pasa al sistema el resumen del viaje terminado
-        viaje = null;
-
     }
 
-    public void finalizarJornada(){
-        trabajando=false;
-    }
+
 
     public String getId() {
         return id;
-    }
-
-    public void iniciarJornada(){
-        trabajando=true;
-    }
-
-    public void liberar(){
-        libre = true;
-    }
-
-    public void ocupar(){
-        libre = false;
-    }
-
-    public boolean disponibilidad(){
-        return libre && trabajando;
     }
 
     public Auto getChoferAuto(){
@@ -124,5 +106,7 @@ public class Chofer {
         }
         return oferta.responderOferta();
     } /**CORREGIR Y HACER TEST, IDEA BIEN PERO NO SALE BIEN DEL LOOP*/
-
+    public void setEstado(Estado estado){
+        unEstado=estado;
+    }
 }

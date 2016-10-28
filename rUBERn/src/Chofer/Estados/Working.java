@@ -1,11 +1,13 @@
-package Chofer;
+package Chofer.Estados;
 
+
+import Chofer.Chofer;
 
 public class Working implements Estado{
     private Chofer chofer;
 
     public void goOnline(){
-        chofer.setEstado(new Online(chofer));
+        chofer.setEstado(new Online());
     }
 
     public void goOffline(){

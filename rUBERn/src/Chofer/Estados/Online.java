@@ -1,5 +1,7 @@
-package Chofer;
+package Chofer.Estados;
 
+
+import Chofer.Chofer;
 
 public class Online implements Estado{
 
@@ -13,7 +15,7 @@ public class Online implements Estado{
 
     }
 
-    public void work(){
+    public void working(){
 
         //chofer.setEstado(new Working(chofer));
 

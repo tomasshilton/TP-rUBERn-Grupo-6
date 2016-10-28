@@ -1,4 +1,5 @@
 package rUBERn;
+import Chofer.Estados.*;
 import Cliente.Cliente;
 import Chofer.*;
 
@@ -71,13 +72,13 @@ public class Menu {
                     System.out.println("Ingrese ID del chofer");
                     Scanner idChofer = new Scanner(System.in);
                     String choferId = idChofer.next();
-                    controlador.getChofer(choferId).finalizarJornada();
+                    controlador.getChofer(choferId).setEstado(new Offline());
                     break;
                 case 4:
                     System.out.println("Ingrese ID del chofer");
                     Scanner otroIdChofer = new Scanner(System.in);
                     String otroChoferId = otroIdChofer.next();
-                    controlador.getChofer(otroChoferId).iniciarJornada();
+                    controlador.getChofer(otroChoferId).setEstado(new Online());
                     break;
                 case 5:
                     break;
