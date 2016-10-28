@@ -24,7 +24,7 @@ public class ChoferTest {
     public void choferTestDisponibilidad(){
         assertTrue(chofer.disponibilidad());
 
-        chofer.finalizarJordana();
+        chofer.finalizarJornada();
         assertFalse(chofer.disponibilidad());
 
         chofer.iniciarJornada();

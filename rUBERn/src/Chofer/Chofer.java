@@ -19,6 +19,7 @@ public class Chofer {
     private Coordenada choferCoordenas;
     private Viaje viaje;
     private String id;
+    private Estado unEstado;
 
     public Chofer(Auto choferAuto, double X, double Y, String id){
         this.choferAuto =choferAuto;
@@ -120,6 +121,5 @@ public class Chofer {
         }
         return false;
     }
-
 
 }

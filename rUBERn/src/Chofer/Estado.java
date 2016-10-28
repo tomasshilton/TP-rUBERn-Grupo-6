@@ -1,14 +1,14 @@
 package Chofer;
 
 
-public  abstract class Estado {
+public interface Estado {
 
-    public abstract void goOnline();
+    void goOnline();
 
-    public abstract void goOffline();
+    void goOffline();
 
-    public abstract void work();
+    void work();
 
-    public abstract boolean disponible();
+    boolean disponible();
 
 }
