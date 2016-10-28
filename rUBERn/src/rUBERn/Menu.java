@@ -49,8 +49,8 @@ public class Menu {
                     Scanner id = new Scanner(System.in);
                     String clienteID = id.next();
                     /**Si usamos hashmaps, el contains verifique si el cliente esta todavia. Si esta, sigue viajando exception, y sino que lo agregue*/
-                    Cliente cliente = new Cliente(clienteID,new Coordenada(coordenadaX,coordenadaY));
-                    controlador.nuevoCliente(cliente);
+                    Cliente cliente = new Cliente(new Coordenada(coordenadaX,coordenadaY));
+                    controlador.nuevoCliente(clienteID,cliente);
                     System.out.println("Ingrese su destino (X,Y)");
                     Scanner dX = new Scanner(System.in);
                     int destinoX = dX.nextInt();
@@ -82,7 +82,27 @@ public class Menu {
                     controlador.getChofer(otroChoferId).setEstado(new Online());
                     break;
                 case 5:
+                    System.out.println("Ingrese el ID del chofer a agregar");
+                    Scanner choferAAgregar = new Scanner(System.in);
+                    String  idChoferAAgregar = choferAAgregar.next();
+                    System.out.println("Ingrese la marca, el modelo, la capacidad, el costo adicional, y la categoria del auto del nuevo chofer");
+                    Scanner scannerMarca = new Scanner(System.in);
+                    String nuevaMarca = scannerMarca.next();
+                    Scanner scannerModelo = new Scanner(System.in);
+                    String nuevoModelo = scannerModelo.next();
+                    Scanner scannerCapacidad = new Scanner(System.in);
+                    int nuevaCapacidad = scannerCapacidad.nextInt();
+                    Scanner scannerCategoria = new Scanner(System.in);
+                    String nuevaCategoria = scannerCategoria.next();
+                    Scanner scannerCostoAdicional = new Scanner(System.in);
+                    double nuevoCostoAdicional = scannerCostoAdicional.nextDouble();
+                    controlador.agregarChofer(idChoferAAgregar,new Chofer(new Auto(nuevaMarca,nuevoModelo,nuevaCapacidad,new Categoria(nuevaCategoria,nuevoCostoAdicional)),0,0));
                     break;
+                case 6:
+                    System.out.println("Ingrese el ID del chofer a remover");
+                    Scanner choferARemover = new Scanner(System.in);
+                    String  idChoferARemover = choferARemover.next();
+                    controlador.removerChofer(idChoferARemover);
                 case 0:
                     System.out.println("Saliendo");
                     running=false;

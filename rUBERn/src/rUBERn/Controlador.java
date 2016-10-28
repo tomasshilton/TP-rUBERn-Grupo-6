@@ -17,8 +17,10 @@ public class Controlador {
         this.buscador = new Buscador(choferesList);
     }
 
-    public void nuevoCliente(String insertDNI,Cliente clienteAAgregar){
-        clientes.put(insertDNI,clienteAAgregar);
+    public void nuevoCliente(String insertDNI,Cliente clienteAAgregar) {
+        if (!clientes.containsKey(insertDNI)) {
+            clientes.put(insertDNI, clienteAAgregar);
+        }
     }
 
     public void agregarChofer(String insertDNI,Chofer choferAAgregar){
@@ -26,6 +28,11 @@ public class Controlador {
 
         ArrayList<Chofer> choferesList = new ArrayList<Chofer>(choferes.values());
         this.buscador = new Buscador(choferesList);
+    }
+    public void removerChofer(String insertDNI) {
+        if (choferes.containsKey(insertDNI)) {
+            choferes.remove(insertDNI);
+        }else throw new NoSeEncontroElChoferException("No se encontro el chofer a remover");
     }
 
     public Buscador getBuscador() {
