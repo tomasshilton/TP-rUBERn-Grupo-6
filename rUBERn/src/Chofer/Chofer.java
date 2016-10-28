@@ -14,13 +14,11 @@ public class Chofer {
     private Auto choferAuto;
     private Coordenada choferCoordenas;
     private Viaje viaje;
-    private String id;
     private Estado unEstado;
 
-    public Chofer(Auto choferAuto, double X, double Y, String id){
+    public Chofer(Auto choferAuto, double X, double Y){
         this.choferAuto =choferAuto;
         this.choferCoordenas= new Coordenada(X,Y);
-        this.id = id;
         this.unEstado= new Online();
     }
 
@@ -46,10 +44,6 @@ public class Chofer {
         return unEstado;
     }
 
-    public String getId() {
-        return id;
-    }
-
     public Auto getChoferAuto(){
         return choferAuto;
     }
@@ -59,7 +53,7 @@ public class Chofer {
          *  EL METEDO EVALUAROFERTA2 SOLUCIONA ESTO
          *  */
 
-        System.out.println("Chofer:"+getId()+"¿Que desea aceptar el viaje?"+"\n"+"1)Aceptar"+" \n"+"2)Rechazar");
+        System.out.println("¿Que desea aceptar el viaje?"+"\n"+"1)Aceptar"+" \n"+"2)Rechazar");
 
         Scanner respuesta = new Scanner(System.in);
         int comando=respuesta.nextInt();

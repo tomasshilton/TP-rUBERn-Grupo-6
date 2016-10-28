@@ -7,15 +7,10 @@ public class Cliente {
 
     private Viaje viaje;
     private Coordenada posicion;
-    private String id;
 
-    public Cliente(String insertID, Coordenada posicion){
+    public Cliente(Coordenada posicion){
         this.posicion = posicion;
-        this.id=insertID;
-
     }
-
-
 
     public Coordenada getPosition() {
         return posicion;
@@ -27,11 +22,7 @@ public class Cliente {
         } else throw new ViajeEnProgresoException("El cliente ya se encuentra viajando.");
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public Viaje getViaje() {
+        public Viaje getViaje() {
         return viaje;
     }
 }

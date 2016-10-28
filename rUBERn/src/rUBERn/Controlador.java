@@ -7,52 +7,43 @@ import Cliente.Cliente;
 import Chofer.Chofer;
 
 public class Controlador {
-    private ArrayList<Cliente> clientes= new ArrayList<Cliente>();
-    private ArrayList<Chofer> choferes;
+    private HashMap<String,Cliente> clientes= new HashMap<>();
+    private HashMap<String, Chofer> choferes;
     private Buscador buscador;
 
-    public Controlador(ArrayList<Chofer> choferes){
+    public Controlador(HashMap<String,Chofer> choferes){
         this.choferes = choferes;
-        buscador = new Buscador(choferes);
+        ArrayList<Chofer> choferesList = new ArrayList<Chofer>(choferes.values());
+        this.buscador = new Buscador(choferesList);
     }
 
-    public void nuevoCliente(Cliente clienteAAgregar){
-        clientes.add(clienteAAgregar);
+    public void nuevoCliente(String insertDNI,Cliente clienteAAgregar){
+        clientes.put(insertDNI,clienteAAgregar);
     }
 
-    public void agregarChofer(Chofer choferAAgregar){
-        choferes.add(choferAAgregar);
-        buscador.addChofer(choferAAgregar);
+    public void agregarChofer(String insertDNI,Chofer choferAAgregar){
+        choferes.put(insertDNI,choferAAgregar);
+
+        ArrayList<Chofer> choferesList = new ArrayList<Chofer>(choferes.values());
+        this.buscador = new Buscador(choferesList);
     }
 
     public Buscador getBuscador() {
         return buscador;
     }
 
-    public ArrayList<Chofer> getChoferes() {
-        return choferes;
-    }
-
-    public ArrayList<Cliente> getClientes() {
-        return clientes;
-    }
-
-    public Cliente getCliente(String id){
-        for(Cliente cliente : clientes) {
-            if (cliente.getId().equals(id)) {
-                return cliente;
-            }
+    public Cliente getCliente(String dni){
+        if( clientes.containsKey(dni)){
+        return clientes.get(dni);
         }
         throw new NoSeEncontroElClienteException("No se pudo hallar el cliente buscado.");
     }
 
-    public Chofer getChofer(String id){
-        for(Chofer chofer : choferes) {
-            if (chofer.getId().equals(id)) {
-                return chofer;
-            }
+    public Chofer getChofer(String dni){
+        if( choferes.containsKey(dni)){
+            return choferes.get(dni);
         }
-        throw new NoSeEncontroElClienteException("No se pudo hallar el chofer buscado.");
+        throw new NoSeEncontroElChoferException("No se pudo hallar el chofer buscado.");
     }
 
     public void darViajeAChofer(Viaje viajeADar){

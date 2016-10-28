@@ -4,19 +4,20 @@ import Cliente.Cliente;
 import Chofer.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Menu {
 
     public static void main(String[] args) {
         boolean running = true;
-        Chofer chofer1=new Chofer(new Auto("marca1","modelo1",2,new Categoria("categoria1",1)),0,0,"1");
-        Chofer chofer2=new Chofer(new Auto("marca2","modelo2",3,new Categoria("categoria2",2)),0,0,"2");
-        Chofer chofer3=new Chofer(new Auto("marca3","modelo3",1,new Categoria("categoria3",3)),0,0,"3");
-        ArrayList<Chofer> choferes = new ArrayList<>();
-        choferes.add(chofer1);
-        choferes.add(chofer2);
-        choferes.add(chofer3);
+        Chofer chofer1=new Chofer(new Auto("marca1","modelo1",2,new Categoria("categoria1",1)),0,0);
+        Chofer chofer2=new Chofer(new Auto("marca2","modelo2",3,new Categoria("categoria2",2)),0,0);
+        Chofer chofer3=new Chofer(new Auto("marca3","modelo3",1,new Categoria("categoria3",3)),0,0);
+        HashMap<String,Chofer> choferes = new HashMap<>();
+        choferes.put("1",chofer1);
+        choferes.put("2",chofer2);
+        choferes.put("3",chofer3);
 
         Controlador controlador = new Controlador(choferes);
 
