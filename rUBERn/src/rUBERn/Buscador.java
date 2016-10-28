@@ -31,7 +31,7 @@ public class Buscador {
             Chofer choferATestear = choferesPosiblesPorCostoDeImagen.get(0);
             if (choferATestear.evaluateOferta(viaje)) {
                 choferATestear.setViaje(viaje);
-                break;
+                return;
             } else {
                 choferesAEvaluar.remove(choferATestear);
             }

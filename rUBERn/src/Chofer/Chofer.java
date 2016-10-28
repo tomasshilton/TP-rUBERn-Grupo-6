@@ -21,7 +21,7 @@ public class Chofer {
         this.choferAuto =choferAuto;
         this.choferCoordenas= new Coordenada(X,Y);
         this.id = id;
-
+        this.unEstado= new Online();
     }
 
     public void setCoordenadas(Coordenada newCoordenadas){
