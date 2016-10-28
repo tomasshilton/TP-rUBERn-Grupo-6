@@ -21,10 +21,16 @@ public class Menu {
 
         while (running) {
 
-            System.out.print("Cliente:\n    1. Pedir viaje\n" +
-                    " \nChofer:\n    2. Completar viaje\n " +
-                    "\nrUBERn:\n    3. finalizar jornada \n   " +
-                    "0. Salir");
+            System.out.println("Cliente:"+"\n"+"\t"+
+                    "1. Pedir viaje" );
+            System.out.println("Chofer:"+"\n"+"\t"+
+                    "2.Completar viaje"+"\n"+"\t"+
+                    "3.Finalizar Jornada"+"\n"+"\t"+
+                    "4.Iniciar Jornada");
+            System.out.println("rUBERn: "+"\n"+"\t"+
+            "5.Agregar Chofer"+"\n"+"\t"+
+            "6.Sacar Chofer"+"\n"+"\t"+
+            "0.Salir");
             System.out.println(" \nIngrese un comando");
             Scanner input = new Scanner(System.in);
             int comando = input.nextInt();
