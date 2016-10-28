@@ -19,3 +19,4 @@ public class Online extends Estado{
         return true;
     }
 }
+1
