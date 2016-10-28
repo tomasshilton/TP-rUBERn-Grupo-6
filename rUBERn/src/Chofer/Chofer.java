@@ -1,13 +1,8 @@
 package Chofer;
 
-import Chofer.Estados.Estado;
-import Chofer.Estados.Online;
-import Chofer.Estados.Working;
-import Chofer.OfertaDeViaje.AceptarOferta;
-import Chofer.OfertaDeViaje.OfertaDeViaje;
-import Chofer.OfertaDeViaje.RechazarOferta;
-import rUBERn.Viaje;
-import rUBERn.Coordenada;
+import Chofer.Estados.*;
+import Chofer.OfertaDeViaje.*;
+import rUBERn.*;
 
 import java.util.Scanner;
 
