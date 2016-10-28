@@ -3,7 +3,6 @@ package rUBERn;
 import Chofer.Chofer;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 
 public class Buscador {
@@ -90,5 +89,9 @@ public class Buscador {
 
     public double getDistance(Viaje viaje, Chofer chofer){
         return (Math.sqrt(Math.pow(viaje.getDesde().getX()-chofer.getChoferCoordenas().getX(),2.0)+Math.pow(viaje.getDesde().getY()-chofer.getChoferCoordenas().getY(),2)));
+    }
+
+    public ArrayList<Chofer> getChoferes() {
+        return choferes;
     }
 }

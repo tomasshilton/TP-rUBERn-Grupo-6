@@ -47,8 +47,12 @@ public class Chofer {
 
     }
 
-    public void finalizarJordana(){
+    public void finalizarJornada(){
         trabajando=false;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public void iniciarJornada(){
@@ -77,11 +81,12 @@ public class Chofer {
         System.out.println("Desea aceptar el viaje?"+"\n"+"1)Aceptar"+" \n"+"2)Rechazar");
 
         Scanner respuesta = new Scanner(System.in);
-        if(respuesta.hasNext("Aceptar")){
+        int comando=respuesta.nextInt();
+        if(comando == 1){
             setViaje(viaje);
             return true;
         }
-        else if(!(respuesta.hasNext("Rechazar"))){
+        else if(!(comando==2)){
             System.out.println("Ingrese una opcion correcta.");
             evaluateOferta(viaje);
         }
