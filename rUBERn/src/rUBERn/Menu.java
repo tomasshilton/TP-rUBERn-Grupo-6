@@ -28,15 +28,15 @@ public class Menu {
                     "3.Finalizar Jornada"+"\n"+"\t"+
                     "4.Iniciar Jornada");
             System.out.println("rUBERn: "+"\n"+"\t"+
-            "5.Agregar Chofer"+"\n"+"\t"+
-            "6.Sacar Chofer"+"\n"+"\t"+
-            "0.Salir");
+                    "5.Agregar Chofer"+"\n"+"\t"+
+                    "6.Sacar Chofer"+"\n"+"\t"+
+                    "0.Salir");
             System.out.println(" \nIngrese un comando");
             Scanner input = new Scanner(System.in);
             int comando = input.nextInt();
 
 
-            switch (comando){
+            switch (comando){ //barra barra
                 case 1:
                     System.out.println("Ingrese su ubicacion (X, Y)");
                     Scanner cX = new Scanner(System.in);
@@ -84,7 +84,6 @@ public class Menu {
                     running=false;
                 default:
                     System.out.println("Por favor ingrese un comando correcto dentro del menú.");
-
             }
         }
     }
