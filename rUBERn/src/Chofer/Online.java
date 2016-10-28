@@ -1,7 +1,7 @@
 package Chofer;
 
 
-public class Online extends Estado{
+public class Online implements Estado{
 
     private Chofer chofer;
 
@@ -19,4 +19,3 @@ public class Online extends Estado{
         return true;
     }
 }
-1

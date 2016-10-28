@@ -14,8 +14,6 @@ public class Chofer {
     // aplicar interfaces de State y saca los boolean
 
     private Auto choferAuto;
-    private boolean trabajando= true;
-    private boolean libre = true;
     private Coordenada choferCoordenas;
     private Viaje viaje;
     private String id;
@@ -25,6 +23,7 @@ public class Chofer {
         this.choferAuto =choferAuto;
         this.choferCoordenas= new Coordenada(X,Y);
         this.id = id;
+
     }
 
     public void setCoordenadas(Coordenada newCoordenadas){

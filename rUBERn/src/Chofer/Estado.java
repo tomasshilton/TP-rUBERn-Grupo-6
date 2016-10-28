@@ -7,7 +7,7 @@ public interface Estado {
 
     void goOffline();
 
-    void work();
+    void working();
 
     boolean disponible();
 
