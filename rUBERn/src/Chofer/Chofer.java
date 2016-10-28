@@ -42,7 +42,9 @@ public class Chofer {
         setCoordenadas(viaje.getDestino());
     }
 
-
+    public Estado getUnEstado() {
+        return unEstado;
+    }
 
     public String getId() {
         return id;
