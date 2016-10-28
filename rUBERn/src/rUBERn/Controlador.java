@@ -7,7 +7,7 @@ import Cliente.Cliente;
 import Chofer.Chofer;
 
 public class Controlador {
-    private ArrayList<Cliente> clientes;
+    private ArrayList<Cliente> clientes= new ArrayList<Cliente>();
     private ArrayList<Chofer> choferes;
     private Buscador buscador;
 

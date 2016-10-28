@@ -76,9 +76,11 @@ public class Chofer {
     }
 
     public boolean evaluateOferta(Viaje viaje){
-        /**AGREGAAR LOS DATOS DEL VIAJE PARA CONSOLA*/
+        /**AGREGAAR LOS DATOS DEL VIAJE PARA CONSOLA
+         *  EL METEDO EVALUAROFERTA2 SOLUCIONA ESTO
+         *  */
 
-        System.out.println("Desea aceptar el viaje?"+"\n"+"1)Aceptar"+" \n"+"2)Rechazar");
+        System.out.println("Chofer:"+getId()+"¿Que desea aceptar el viaje?"+"\n"+"1)Aceptar"+" \n"+"2)Rechazar");
 
         Scanner respuesta = new Scanner(System.in);
         int comando=respuesta.nextInt();
@@ -95,8 +97,8 @@ public class Chofer {
     }
 
     public boolean evaluateOferta2(Viaje viaje){
-        OfertaDeViaje oferta;
-        System.out.println("A llegagado una solicitud de viaje.¿Que desea hacer?"+"\n"
+        OfertaDeViaje oferta = new RechazarOferta(viaje);
+        System.out.println("Le ha llegado una solicitud de viaje.¿Que desea hacer?"+"\n"
                 +"1. Pedir informacion del viaje"+"\n"
                 +"2.Aceptar Viaje"+"\n"
                 +"3.Rechazar Viaje");
@@ -104,21 +106,23 @@ public class Chofer {
         int comando = input.nextInt();
         switch (comando){
             case 1:
-                System.out.println("Punto de encuentro: ("+viaje.getDesde().getX()+","+viaje.getDesde().getY()+")" +"\n"
+                System.out.println("------------------"+"\n"
+                        +"Punto de encuentro: ("+viaje.getDesde().getX()+","+viaje.getDesde().getY()+")" +"\n"
                         +"Punto de Destino: ("+viaje.getDestino().getX()+","+viaje.getDestino().getY()+")" +"\n"
-                        +"Cantidad de personas: "+viaje.getNumberOfPassenger());
+                        +"Cantidad de personas: "+viaje.getNumberOfPassenger()+"\n"
+                +"------------------");
                 evaluateOferta2(viaje);
                 break;
             case 2:
                 oferta = new AceptarOferta(viaje);
-                return oferta.responderOferta();
+                break;
             case 3:
-                oferta = new RechazarOferta(viaje);
-                return oferta.responderOferta();
+                break;
             default:
                 evaluateOferta2(viaje);
+                break;
         }
-        return false;
-    }
+        return oferta.responderOferta();
+    } /**CORREGIR Y HACER TEST, IDEA BIEN PERO NO SALE BIEN DEL LOOP*/
 
 }
