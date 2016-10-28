@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import Chofer.Chofer;
 import Chofer.Auto;
 import Chofer.Categoria;
+import Chofer.Estados.Working;
 import org.junit.Test;
 import rUBERn.Coordenada;
 import rUBERn.Buscador;
@@ -41,12 +42,12 @@ public class BuscadorTest {
 
         Buscador gestion = new Buscador(choferes);
 
-        choferes.get(1).ocupar(); // me aseguro descartar un elemento en el array auxiliar
+        choferes.get(1).setEstado(new Working()); // me aseguro descartar un elemento en el array auxiliar
 
         ArrayList<Chofer> choferesTester = gestion.filterOnline(choferes);
         assertTrue (choferesTester.contains(chofer1));
 
-        choferes.get(0).ocupar(); // como ejecuta el metodo seguro es Chofer1
+        choferes.get(0).setEstado(new Working()); // como ejecuta el metodo seguro es Chofer1
         choferesTester=gestion.filterOnline(choferes);
 
         assertFalse(choferesTester.contains(chofer1));

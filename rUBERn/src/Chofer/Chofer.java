@@ -103,6 +103,7 @@ public class Chofer {
         }
         return oferta.responderOferta();
     } /**CORREGIR Y HACER TEST, IDEA BIEN PERO NO SALE BIEN DEL LOOP*/
+
     public void setEstado(Estado estado){
         unEstado=estado;
     }

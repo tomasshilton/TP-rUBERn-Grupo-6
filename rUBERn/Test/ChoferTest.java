@@ -1,6 +1,9 @@
 import Chofer.Auto;
 import Chofer.Categoria;
 import Chofer.Chofer;
+import Chofer.Estados.Offline;
+import Chofer.Estados.Online;
+import Chofer.Estados.Working;
 import org.junit.Test;
 import rUBERn.Coordenada;
 import rUBERn.Viaje;
@@ -22,18 +25,18 @@ public class ChoferTest {
 
     @Test
     public void choferTestDisponibilidad(){
-        assertTrue(chofer.disponibilidad());
+        assertTrue(chofer.getUnEstado().disponible());
 
-        chofer.finalizarJornada();
-        assertFalse(chofer.disponibilidad());
+        chofer.setEstado(new Offline());
+        assertFalse(chofer.getUnEstado().disponible());
 
-        chofer.iniciarJornada();
-        chofer.ocupar();
+        chofer.setEstado(new Online());
+        chofer.setEstado(new Working());
 
-        assertFalse(chofer.disponibilidad());
+        assertFalse(chofer.getUnEstado().disponible());
 
-        chofer.liberar();
-        assertTrue(chofer.disponibilidad());
+        chofer.setEstado(new Offline());
+        assertTrue(chofer.getUnEstado().disponible());
     }
 
     @Test
@@ -47,10 +50,10 @@ public class ChoferTest {
     public void setChoferViajeTest(){
         Viaje trip = new Viaje(desde,hasta,1);
         chofer.setViaje(trip);
-        assertFalse(chofer.disponibilidad());
+        assertFalse(chofer.getUnEstado().disponible());
 
-        chofer.liberar();
+        chofer.setEstado(new Online());
 
-        assertTrue(chofer.disponibilidad());
+        assertTrue(chofer.getUnEstado().disponible());
     }
 }
