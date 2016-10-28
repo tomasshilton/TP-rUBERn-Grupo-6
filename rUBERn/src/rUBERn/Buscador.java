@@ -24,21 +24,19 @@ public class Buscador {
 
     public void darViajeAChofer(Viaje viaje){
         ArrayList<Chofer> choferesAEvaluar = choferes;
-        while (choferesAEvaluar.get(0) != null) {
-            ArrayList<Chofer> choferesOnline = filterOnline(choferesAEvaluar);
-            ArrayList<Chofer> choferesPosibles = filterCapacity(viaje, choferesOnline);
-            ArrayList<Chofer> choferesPosiblesPorCostoDeImagen = sortByCostoDeImagen(choferesPosibles, viaje);
-            Chofer choferATestear = choferesPosiblesPorCostoDeImagen.get(0);
+        ArrayList<Chofer> choferesOnline = filterOnline(choferesAEvaluar);
+        ArrayList<Chofer> choferesPosibles = filterCapacity(viaje, choferesOnline);
+        ArrayList<Chofer> choferesPosiblesPorCostoDeImagen = sortByCostoDeImagen(choferesPosibles, viaje);
+
+        for(Chofer choferATestear:choferesPosiblesPorCostoDeImagen) {
             if (choferATestear.evaluateOferta(viaje)) {
                 choferATestear.setViaje(viaje);
                 return;
-            } else {
-                choferesAEvaluar.remove(choferATestear);
             }
         }
-        if (choferesAEvaluar.get(0) == null) {
-            throw new NoHayChoferesException("No hay chofer disponible para este viaje");
-        }
+
+        throw new NoHayChoferesException("No hay chofer disponible para este viaje");
+
     }
 
     public ArrayList<Chofer> filterOnline(ArrayList<Chofer> choferesAEvaluar){
