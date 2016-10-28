@@ -3,16 +3,22 @@ package rUBERn;
 import Chofer.Chofer;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 
-public class Gestion {
+public class Buscador {
 
     private ArrayList<Chofer> choferes;
-    private ArrayList<Chofer> ret = new ArrayList<>();
 
-    public Gestion(ArrayList<Chofer> choferes){
+    public Buscador(ArrayList<Chofer> choferes){
         this.choferes=choferes;
+    }
+
+    public void addChofer(Chofer choferToAdd){
+        choferes.add(choferToAdd);
+    }
+
+    public void removeChofer(Chofer choferToRemove){
+        choferes.remove(choferToRemove);
     }
 
     public void darViajeAChofer(Viaje viaje){
@@ -74,10 +80,18 @@ public class Gestion {
     }
 
     public double calcularCostoDeImagen(Chofer chofer, Viaje viaje){
-        return (viaje.getDistance()*2)/500 + ((viaje.getDistance()*2)/500)*(chofer.getChoferAuto().getCategoria().getCostoAdicional() / 100);
+        return (getDistance(viaje, chofer)*2)/500 + ((getDistance(viaje, chofer)*2)/500)*(chofer.getChoferAuto().getCategoria().getCostoAdicional() / 100);
     }
 
     public boolean compararCostoDeImagen(Chofer chofer1, Chofer chofer2, Viaje viaje){
         return (calcularCostoDeImagen(chofer1, viaje) < calcularCostoDeImagen(chofer2, viaje));
+    }
+
+    public double getDistance(Viaje viaje, Chofer chofer){
+        return (Math.sqrt(Math.pow(viaje.getDesde().getX()-chofer.getChoferCoordenas().getX(),2.0)+Math.pow(viaje.getDesde().getY()-chofer.getChoferCoordenas().getY(),2)));
+    }
+
+    public ArrayList<Chofer> getChoferes() {
+        return choferes;
     }
 }

@@ -7,39 +7,31 @@ public class Cliente {
 
     private Viaje viaje;
     private Coordenada posicion;
+    private String id;
 
-    public Cliente(Coordenada posicion){
+    public Cliente(String insertID, Coordenada posicion){
         this.posicion = posicion;
+        this.id=insertID;
+
     }
 
-    public Viaje getViaje() {
-        return viaje;
-    }
+
 
     public Coordenada getPosition() {
         return posicion;
     }
 
-    public void setViaje(Viaje viaje) {
-        if(viaje.equals(null))
-            this.viaje = viaje;
-        else
-            throw new ViajeEnProgresoException("Uds. todavia se encuentra en viaje a su destino ("+posicion.getX()+","+posicion.getY()+")"+
-                    "\n"+". Una vez finalizado puede pedir uno nuevamente");
-    }
-
     public void askForTrip(Coordenada destino,int numbersOfPassenger){
-        Viaje viaje = new Viaje(posicion, destino,numbersOfPassenger);
-        this.viaje = viaje;
+        if(viaje==null){
+            viaje = new Viaje(posicion, destino,numbersOfPassenger);
+        } else throw new ViajeEnProgresoException("El cliente ya se encuentra viajando.");
     }
 
-    public void askForTrip(Coordenada destino){
-        askForTrip(destino, 1);
+    public String getId() {
+        return id;
     }
 
-    public void setPosition(Coordenada posicion) {
-        this.posicion = posicion;
+    public Viaje getViaje() {
+        return viaje;
     }
-
-
 }
