@@ -9,9 +9,9 @@ public class Menu {
 
     public static void main(String[] args) {
         boolean running = true;
-        Chofer chofer1=new Chofer(new Auto("marca1","modelo1",2,new Categoria("categoria1",1)),0,0,"id");
-        Chofer chofer2=new Chofer(new Auto("marca2","modelo2",3,new Categoria("categoria2",2)),0,0,"id");
-        Chofer chofer3=new Chofer(new Auto("marca3","modelo3",1,new Categoria("categoria3",3)),0,0,"id");
+        Chofer chofer1=new Chofer(new Auto("marca1","modelo1",2,new Categoria("categoria1",1)),0,0,"1");
+        Chofer chofer2=new Chofer(new Auto("marca2","modelo2",3,new Categoria("categoria2",2)),0,0,"2");
+        Chofer chofer3=new Chofer(new Auto("marca3","modelo3",1,new Categoria("categoria3",3)),0,0,"3");
         ArrayList<Chofer> choferes = new ArrayList<>();
         choferes.add(chofer1);
         choferes.add(chofer2);
