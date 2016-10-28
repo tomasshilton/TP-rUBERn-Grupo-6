@@ -15,27 +15,23 @@ public class Cliente {
 
     }
 
-    public Viaje getViaje() {
-        return viaje;
-    }
+
 
     public Coordenada getPosition() {
         return posicion;
     }
 
     public void askForTrip(Coordenada destino,int numbersOfPassenger){
-        viaje = new Viaje(posicion, destino,numbersOfPassenger);
-    }
-
-    public void askForTripForOnePerson(Coordenada destino){
-        askForTrip(destino, 1);
-    }
-
-    public void setPosition(Coordenada posicion) {
-        this.posicion = posicion;
+        if(viaje==null){
+            viaje = new Viaje(posicion, destino,numbersOfPassenger);
+        }else throw new ViajeEnProgresoException("El cliente ya se encuentra viajando.");
     }
 
     public String getId() {
         return id;
+    }
+
+    public Viaje getViaje() {
+        return viaje;
     }
 }
