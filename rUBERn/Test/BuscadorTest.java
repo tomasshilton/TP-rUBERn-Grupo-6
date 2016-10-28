@@ -17,15 +17,15 @@ public class BuscadorTest {
     /**HACER PUBLICO LOS METODOS AUXILIARES */
     Categoria cat1 = new Categoria("cat1", 250);
     Auto car1 = new Auto("abs", "abs ", 2, cat1);
-    Chofer chofer1 = new Chofer(car1, 0, 0);
+    Chofer chofer1 = new Chofer(car1, 0, 0,"asd");
 
     Categoria cat2 = new Categoria("cat2", 50);
     Auto car2 = new Auto("abs", "abs ", 4, cat2);
-    Chofer chofer2 = new Chofer(car2, 0, 0);
+    Chofer chofer2 = new Chofer(car2, 0, 0,"asd");
 
     Categoria cat3 = new Categoria("cat3", 150);
     Auto car3 = new Auto("abs", "abs ", 6, cat3);
-    Chofer chofer3 = new Chofer(car3, 0, 0);
+    Chofer chofer3 = new Chofer(car3, 0, 0,"asd");
 
 
     Coordenada coord1 = new Coordenada(0,0);
@@ -85,13 +85,13 @@ public class BuscadorTest {
 
         Categoria cat4 = new Categoria("cat1", 0);
         Auto car4 = new Auto("abs", "abs ", 2, cat4);
-        Chofer chofer4 = new Chofer(car4, 5, 5);
+        Chofer chofer4 = new Chofer(car4, 5, 5,"asd");
         Categoria cat5 = new Categoria("cat2", 0);
         Auto car5 = new Auto("abs", "abs ", 4, cat5);
-        Chofer chofer5 = new Chofer(car5, 6, 6);
+        Chofer chofer5 = new Chofer(car5, 6, 6,"asd");
         Categoria cat6 = new Categoria("cat3", 0);
         Auto car6 = new Auto("abs", "abs ", 6, cat6);
-        Chofer chofer6 = new Chofer(car6, 2, 2);
+        Chofer chofer6 = new Chofer(car6, 2, 2,"asd");
 
         choferes.add(chofer4);
         choferes.add(chofer5);

@@ -18,7 +18,7 @@ public class ChoferTest {
     Coordenada desde = new Coordenada(0,0);
     Coordenada hasta = new Coordenada(1,1);
 
-    Chofer chofer = new Chofer(auto,choferCoord.getX(),choferCoord.getY());
+    Chofer chofer = new Chofer(auto,choferCoord.getX(),choferCoord.getY(),"asd");
 
     @Test
     public void choferTestDisponibilidad(){

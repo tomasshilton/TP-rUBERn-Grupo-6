@@ -16,14 +16,14 @@ public class ClienteTest {
 
     @Test
     public void clienteTesterSinViaje(){
-        Cliente firstClient = new Cliente(desde);
+        Cliente firstClient = new Cliente("asd",desde);
         assertTrue(firstClient.getViaje()==(null));
 
     }
     @Test
     public void clienteTesterConViaje(){
-        Cliente firstClient = new Cliente(desde);
-        firstClient.askForTrip(hasta);
+        Cliente firstClient = new Cliente("asd",desde);
+        firstClient.askForTrip(hasta,1);
         Viaje firstTrip = firstClient.getViaje();
 
         assertFalse(firstClient.getViaje().equals(null));

@@ -1,21 +1,26 @@
 package Chofer;
 
 
-public class Online extends Estado{
+public class Online implements Estado{
 
     private Chofer chofer;
 
     public void goOnline(){}
 
     public void goOffline(){
-        chofer.setEstado(new Offline(chofer));
+
+        //chofer.setEstado(new Offline(chofer));
+
     }
 
-    public void working(){
-        chofer.setEstado(new Working(chofer));
+    public void work(){
+
+        //chofer.setEstado(new Working(chofer));
+
     }
 
     public boolean disponible(){
         return true;
     }
+
 }
