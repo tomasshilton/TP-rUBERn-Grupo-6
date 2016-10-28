@@ -1,11 +1,12 @@
 package rUBERn;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
 import Cliente.Cliente;
 import Chofer.Chofer;
 
 public class Controlador {
-
     private ArrayList<Cliente> clientes;
     private ArrayList<Chofer> choferes;
     private Buscador buscador;
@@ -42,7 +43,7 @@ public class Controlador {
                 return cliente;
             }
         }
-        throw new NoSeEncontroElClienteException("no se pudo hayar el cliente buscado");
+        throw new NoSeEncontroElClienteException("No se pudo hallar el cliente buscado.");
     }
 
     public Chofer getChofer(String id){
@@ -51,29 +52,11 @@ public class Controlador {
                 return chofer;
             }
         }
-        throw new NoSeEncontroElClienteException("no se pudo hayar el chofer buscado");
+        throw new NoSeEncontroElClienteException("No se pudo hallar el chofer buscado.");
     }
 
     public void darViajeAChofer(Viaje viajeADar){
         buscador.darViajeAChofer(viajeADar);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
