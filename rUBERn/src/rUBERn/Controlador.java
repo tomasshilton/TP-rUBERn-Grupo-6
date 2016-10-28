@@ -6,7 +6,7 @@ import Chofer.Chofer;
 
 public class Controlador {
 
-    private ArrayList<Cliente> clientes=new ArrayList<>();
+    private ArrayList<Cliente> clientes;
     private ArrayList<Chofer> choferes;
     private Buscador buscador;
 
@@ -37,17 +37,17 @@ public class Controlador {
     }
 
     public Cliente getCliente(String id){
-        for(Cliente cliente : clientes){
-            if(cliente.getId().equals(id)){
+        for(Cliente cliente : clientes) {
+            if (cliente.getId().equals(id)) {
                 return cliente;
             }
         }
-       throw new NoSeEncontroElClienteException("no se pudo hayar el cliente buscado");
+        throw new NoSeEncontroElClienteException("no se pudo hayar el cliente buscado");
     }
 
     public Chofer getChofer(String id){
-        for(Chofer chofer : choferes){
-            if(chofer.getId().equals(id)){
+        for(Chofer chofer : choferes) {
+            if (chofer.getId().equals(id)) {
                 return chofer;
             }
         }
