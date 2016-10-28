@@ -24,7 +24,7 @@ public class Cliente {
     public void askForTrip(Coordenada destino,int numbersOfPassenger){
         if(viaje==null){
             viaje = new Viaje(posicion, destino,numbersOfPassenger);
-        }else throw new ViajeEnProgresoException("El cliente ya se encuentra viajando.");
+        } else throw new ViajeEnProgresoException("El cliente ya se encuentra viajando.");
     }
 
     public String getId() {
