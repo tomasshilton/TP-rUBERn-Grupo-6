@@ -32,12 +32,16 @@ public class Chofer {
 
     public void setViaje(Viaje viaje){
         this.viaje=viaje;
-        setEstado(new Working()); //idea
+        unEstado.working();
     }
 
     public void terminarViaje(){
-        setEstado(new Online());
+        unEstado.goOnline();
         setCoordenadas(viaje.getDestino());
+    }
+
+    public boolean disponibilidad(){
+        return unEstado.disponible();
     }
 
     public Estado getUnEstado() {
