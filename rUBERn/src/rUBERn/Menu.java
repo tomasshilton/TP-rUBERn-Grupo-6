@@ -2,6 +2,9 @@ package rUBERn;
 import Chofer.Estados.*;
 import Cliente.Cliente;
 import Chofer.*;
+import rUBERn.Formulario.FormularioAgregarChofer;
+import rUBERn.Formulario.FormularioChofer;
+import rUBERn.Formulario.FormularioCliente;
 
 import java.util.HashMap;
 import java.util.Scanner;
@@ -45,46 +48,24 @@ public class Menu {
                     controlador.darViajeAChofer(controlador.getCliente(formularioCliente.getClienteID()).getViaje());
                     break;
                 case 2:
-                    System.out.println("Ingrese ID del chofer");
-                    Scanner idchofer = new Scanner(System.in);
-                    String choferID = idchofer.next();
-                    controlador.getChofer(choferID).terminarViaje();
-                    /**remover al cliente de la lista de clientes al finalizar el viaje. si usamos hashmap para viajes le pasamos un key al viaje para identificar cliente*/
+                    FormularioChofer formularioTerminarViaje=new FormularioChofer();
+                    controlador.getChofer(formularioTerminarViaje.getChoferID()).terminarViaje();
                     break;
                 case 3:
-                    System.out.println("Ingrese ID del chofer");
-                    Scanner idChofer = new Scanner(System.in);
-                    String choferId = idChofer.next();
-                    controlador.getChofer(choferId).setEstado(new Offline());
+                    FormularioChofer formularioFinalizarJornada=new FormularioChofer();
+                    controlador.getChofer(formularioFinalizarJornada.getChoferID()).setEstado(new Offline());
                     break;
                 case 4:
-                    System.out.println("Ingrese ID del chofer");
-                    Scanner otroIdChofer = new Scanner(System.in);
-                    String otroChoferId = otroIdChofer.next();
-                    controlador.getChofer(otroChoferId).setEstado(new Online());
+                    FormularioChofer formularioIniciarJornada=new FormularioChofer();
+                    controlador.getChofer(formularioIniciarJornada.getChoferID()).setEstado(new Online());
                     break;
                 case 5:
-                    System.out.println("Ingrese el ID del chofer a agregar");
-                    Scanner choferAAgregar = new Scanner(System.in);
-                    String  idChoferAAgregar = choferAAgregar.next();
-                    System.out.println("Ingrese la marca, el modelo, la capacidad, el costo adicional, y la categoria del auto del nuevo chofer");
-                    Scanner scannerMarca = new Scanner(System.in);
-                    String nuevaMarca = scannerMarca.next();
-                    Scanner scannerModelo = new Scanner(System.in);
-                    String nuevoModelo = scannerModelo.next();
-                    Scanner scannerCapacidad = new Scanner(System.in);
-                    int nuevaCapacidad = scannerCapacidad.nextInt();
-                    Scanner scannerCategoria = new Scanner(System.in);
-                    String nuevaCategoria = scannerCategoria.next();
-                    Scanner scannerCostoAdicional = new Scanner(System.in);
-                    double nuevoCostoAdicional = scannerCostoAdicional.nextDouble();
-                    controlador.agregarChofer(idChoferAAgregar,new Chofer(new Auto(nuevaMarca,nuevoModelo,nuevaCapacidad,new Categoria(nuevaCategoria,nuevoCostoAdicional)),0,0));
+                    FormularioAgregarChofer formularioAgregarChofer = new FormularioAgregarChofer();
+                    controlador.agregarChofer(formularioAgregarChofer.getChoferID(),new Chofer(new Auto(formularioAgregarChofer.getMarca(),formularioAgregarChofer.getModelo(),formularioAgregarChofer.getCapacidad(),new Categoria(formularioAgregarChofer.getCategoria(),formularioAgregarChofer.getCostoAdicional())),0,0));
                     break;
                 case 6:
-                    System.out.println("Ingrese el ID del chofer a remover");
-                    Scanner choferARemover = new Scanner(System.in);
-                    String  idChoferARemover = choferARemover.next();
-                    controlador.removerChofer(idChoferARemover);
+                    FormularioChofer formularioRemoverChofer = new FormularioChofer();
+                    controlador.removerChofer(formularioRemoverChofer.getChoferID());
                 case 0:
                     System.out.println("Saliendo");
                     running=false;

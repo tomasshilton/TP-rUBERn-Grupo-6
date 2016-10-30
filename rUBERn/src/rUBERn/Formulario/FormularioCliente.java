@@ -1,17 +1,11 @@
-package rUBERn;
+package rUBERn.Formulario;
 
 import java.util.Scanner;
 
 /**
  * Created by Simon1 on 28-Oct-16.
  */
-public class FormularioCliente {
-    int coordenadaX;
-    int coordenadaY;
-    String clienteID;
-    int destinoX;
-    int destinoY;
-    int cant;
+public class FormularioCliente extends Formulario{
 
     public FormularioCliente(){
         System.out.println("Ingrese su ubicacion (X, Y)");
@@ -30,29 +24,5 @@ public class FormularioCliente {
         System.out.println("Cuantos pasajeros son?");
         Scanner cantidad=new Scanner(System.in);
         cant = cantidad.nextInt();
-    }
-
-    public int getDestinoX() {
-        return destinoX;
-    }
-
-    public int getDestinoY() {
-        return destinoY;
-    }
-
-    public int getCant() {
-        return cant;
-    }
-
-    public int getCoordenadaX() {
-        return coordenadaX;
-    }
-
-    public int getCoordenadaY() {
-        return coordenadaY;
-    }
-
-    public String getClienteID() {
-        return clienteID;
     }
 }
