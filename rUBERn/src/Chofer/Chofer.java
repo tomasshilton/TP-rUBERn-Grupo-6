@@ -40,6 +40,14 @@ public class Chofer {
         setCoordenadas(viaje.getDestino());
     }
 
+    public void goOnline(){
+        unEstado.goOnline();
+    }
+
+    public void goOffline(){
+        unEstado.goOffline();
+    }
+
     public boolean disponibilidad(){
         return unEstado.disponible();
     }
