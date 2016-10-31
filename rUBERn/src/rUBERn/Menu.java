@@ -50,7 +50,7 @@ public class Menu {
                 case 2:
                     FormularioChofer formularioTerminarViaje=new FormularioChofer();
                     Viaje viajeATerminar = controlador.getChofer(formularioTerminarViaje.getChoferID()).getViaje();
-                    Registro nuevoRegistro = new Registro(controlador.getChofer(viajeATerminar, controlador.getClienteByViaje(viajeATerminar), controlador.getChofer(formularioTerminarViaje.getChoferID()));
+                    Registro nuevoRegistro = new Registro(viajeATerminar, controlador.getClienteByViaje(viajeATerminar), controlador.getChofer(formularioTerminarViaje.getChoferID()));
                     controlador.addRegistro(nuevoRegistro);
                     controlador.getClienteByViaje(viajeATerminar).terminarViaje();
                     controlador.getChofer(formularioTerminarViaje.getChoferID()).terminarViaje();
