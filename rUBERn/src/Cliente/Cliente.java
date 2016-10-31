@@ -22,7 +22,11 @@ public class Cliente {
         } else throw new ViajeEnProgresoException("El cliente ya se encuentra viajando.");
     }
 
-        public Viaje getViaje() {
+    public Viaje getViaje() {
         return viaje;
+    }
+
+    public void terminarViaje(){
+        viaje = null;
     }
 }

@@ -40,6 +40,10 @@ public class Chofer {
         setCoordenadas(viaje.getDestino());
     }
 
+    public Viaje getViaje() {
+        return viaje;
+    }
+
     public void goOnline(){
         unEstado.goOnline();
     }

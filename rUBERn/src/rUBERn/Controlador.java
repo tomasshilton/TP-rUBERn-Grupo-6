@@ -10,6 +10,7 @@ public class Controlador {
     private HashMap<String,Cliente> clientes= new HashMap<>();
     private HashMap<String, Chofer> choferes;
     private Buscador buscador;
+    private ArrayList<Registro> registros;
 
     public Controlador(HashMap<String,Chofer> choferes){
         this.choferes = choferes;
@@ -29,6 +30,10 @@ public class Controlador {
         ArrayList<Chofer> choferesList = new ArrayList<Chofer>(choferes.values());
         this.buscador = new Buscador(choferesList);
     }
+    public void addRegistro(Registro registroAAgregar){
+        registros.add(registroAAgregar);
+    }
+
     public void removerChofer(String insertDNI) {
         if (choferes.containsKey(insertDNI)) {
             choferes.remove(insertDNI);
@@ -56,5 +61,15 @@ public class Controlador {
     public void darViajeAChofer(Viaje viajeADar){
         buscador.darViajeAChofer(viajeADar);
     }
+
+    public Cliente getClienteByViaje(Viaje viaje){
+        for (Cliente clienteATestear : clientes){
+            if (clienteATestear.getViaje().equals(viaje)){
+                return clienteATestear;
+            }
+        }
+        throw new NoSeEncontroElClienteException("No se pudo hallar el cliente buscado.");
+    }
+
 
 }
