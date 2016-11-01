@@ -11,11 +11,13 @@ public class Controlador {
     private HashMap<String, Chofer> choferes;
     private Buscador buscador;
     private ArrayList<Registro> registros;
+    private BuscadorDeRegistros buscadorDeRegistros;
 
     public Controlador(HashMap<String,Chofer> choferes){
         this.choferes = choferes;
         ArrayList<Chofer> choferesList = new ArrayList<Chofer>(choferes.values());
         this.buscador = new Buscador(choferesList);
+        buscadorDeRegistros = new BuscadorDeRegistros(registros);
     }
 
     public void nuevoCliente(String insertDNI,Cliente clienteAAgregar) {
@@ -32,6 +34,7 @@ public class Controlador {
     }
     public void addRegistro(Registro registroAAgregar){
         registros.add(registroAAgregar);
+        buscadorDeRegistros.addRegistro(registroAAgregar);
     }
 
     public void removerChofer(String insertDNI) {
@@ -72,5 +75,12 @@ public class Controlador {
         throw new NoSeEncontroElClienteException("No se pudo hallar el cliente buscado.");
     }
 
+    public ArrayList<Registro> buscarRegistrosByCliente(Cliente clienteBuscado){
+        return buscadorDeRegistros.buscarRegistrosByCliente(clienteBuscado);
+    }
+
+    public ArrayList<Registro> buscarRegistrosByChofer(Chofer choferBuscado){
+        return buscadorDeRegistros.buscarRegistrosByChofer(choferBuscado);
+    }
 
 }
