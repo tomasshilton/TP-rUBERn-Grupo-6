@@ -42,7 +42,7 @@ public class Buscador {
     public ArrayList<Chofer> filterOnline(ArrayList<Chofer> choferesAEvaluar){
         ArrayList<Chofer> choferesOnline = new ArrayList<Chofer>();
         for(Chofer choferATestear: choferesAEvaluar){
-            if (choferATestear.disponibilidad()){
+            if (choferATestear.disponible()){
                 choferesOnline.add(choferATestear);
             }
         }

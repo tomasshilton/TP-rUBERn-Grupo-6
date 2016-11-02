@@ -65,7 +65,7 @@ public class Menu {
                     break;
                 case 5:
                     FormularioAgregarChofer formularioAgregarChofer = new FormularioAgregarChofer();
-                    controlador.agregarChofer(formularioAgregarChofer.getChoferID(), new Chofer(new Auto(formularioAgregarChofer.getMarca(),formularioAgregarChofer.getModelo(),formularioAgregarChofer.getCapacidad(),new Categoria(formularioAgregarChofer.getCategoria(),formularioAgregarChofer.getCostoAdicional())),0,0));
+                    controlador.agregarChofer(formularioAgregarChofer.getChoferID(),new Chofer(new Auto(formularioAgregarChofer.getMarca(),formularioAgregarChofer.getModelo(),formularioAgregarChofer.getCapacidad(),new Categoria(formularioAgregarChofer.getCategoria(),formularioAgregarChofer.getCostoAdicional())),0,0));
                     break;
                 case 6:
                     FormularioChofer formularioRemoverChofer = new FormularioChofer();

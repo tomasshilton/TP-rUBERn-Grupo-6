@@ -9,8 +9,6 @@ import java.util.Scanner;
 
 public class Chofer {
 
-    // aplicar interfaces de State y saca los boolean
-
     private Auto choferAuto;
     private Coordenada choferCoordenas;
     private Viaje viaje;
@@ -32,11 +30,11 @@ public class Chofer {
 
     public void setViaje(Viaje viaje){
         this.viaje=viaje;
-        unEstado.working();
+        working();
     }
 
     public void terminarViaje(){
-        unEstado.goOnline();
+        goOnline();
         setCoordenadas(viaje.getDestino());
     }
 
@@ -45,11 +43,11 @@ public class Chofer {
     }
 
     public void goOnline(){
-        unEstado.goOnline();
+        setEstado(new Online());
     }
 
     public void goOffline(){
-        unEstado.goOffline();
+        setEstado(new Offline());
     }
 
     public boolean disponibilidad(){
@@ -116,5 +114,15 @@ public class Chofer {
 
     public void setEstado(Estado estado){
         unEstado=estado;
+    }
+
+
+    public void working() {
+        setEstado(new Working());
+    }
+
+
+    public boolean disponible() {
+        return unEstado.disponible();
     }
 }
