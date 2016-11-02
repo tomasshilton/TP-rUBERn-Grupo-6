@@ -20,7 +20,7 @@ public class Controlador {
         buscadorDeRegistros = new BuscadorDeRegistros(registros);
     }
 
-    public void nuevoCliente(String insertDNI,Cliente clienteAAgregar) {
+    public void nuevoCliente(String insertDNI, Cliente clienteAAgregar) {
         if (!clientes.containsKey(insertDNI)) {
             clientes.put(insertDNI, clienteAAgregar);
         }
