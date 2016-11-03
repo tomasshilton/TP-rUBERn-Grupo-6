@@ -25,7 +25,8 @@ public class Buscador {
         ArrayList<Chofer> choferesAEvaluar = choferes;
         ArrayList<Chofer> choferesOnline = filterOnline(choferesAEvaluar);
         ArrayList<Chofer> choferesPosibles = filterCapacity(viaje, choferesOnline);
-        ArrayList<Chofer> choferesPosiblesPorCostoDeImagen = sortByCostoDeImagen(choferesPosibles, viaje);
+        ArrayList<Chofer> choferesPosiblesEnDistancia = filterMaxDistance(choferesPosibles, viaje);
+        ArrayList<Chofer> choferesPosiblesPorCostoDeImagen = sortByCostoDeImagen(choferesPosiblesEnDistancia, viaje);
 
         for(Chofer choferATestear:choferesPosiblesPorCostoDeImagen) {
             if (choferATestear.evaluateViaje(viaje)) {
@@ -59,19 +60,34 @@ public class Buscador {
         return choferesConCapacidad;
     }
 
-    public ArrayList<Chofer> sortByCostoDeImagen(ArrayList<Chofer> choferesConCapacidadYOnline, Viaje viaje) {
+    public ArrayList<Chofer> filterMaxDistance(ArrayList<Chofer> choferesConCapacidadYOnline, Viaje viaje){
+        //seteamos la distancia maxima a la que puede estar un chofer del cliente a 15km
+        ArrayList<Chofer> choferesEnDistancia = new ArrayList<Chofer>();
+        double distanciaMaxima = 15000;
+        for(Chofer choferATestear: choferesConCapacidadYOnline){
+            if (getDistance(viaje, choferATestear) <= distanciaMaxima){
+                choferesEnDistancia.add(choferATestear);
+            }
+        }
+        return choferesEnDistancia;
+    }
+
+
+
+
+    public ArrayList<Chofer> sortByCostoDeImagen(ArrayList<Chofer> choferesTrasFiltrado, Viaje viaje) {
 
         ArrayList<Chofer> choferesPorCostoDeImagen = new ArrayList<Chofer>();
 
-        while (choferesConCapacidadYOnline.size() > 0){
-            Chofer choferConMenorCostoDeImagen = choferesConCapacidadYOnline.get(0);
-            for (Chofer choferATestear : choferesConCapacidadYOnline) {
+        while (choferesTrasFiltrado.size() > 0){
+            Chofer choferConMenorCostoDeImagen = choferesTrasFiltrado.get(0);
+            for (Chofer choferATestear : choferesTrasFiltrado) {
                 if (compararCostoDeImagen(choferATestear, choferConMenorCostoDeImagen, viaje)) {
                     choferConMenorCostoDeImagen = choferATestear;
                 }
             }
             choferesPorCostoDeImagen.add(choferConMenorCostoDeImagen);
-            choferesConCapacidadYOnline.remove(choferConMenorCostoDeImagen);
+            choferesTrasFiltrado.remove(choferConMenorCostoDeImagen);
         }
         return choferesPorCostoDeImagen;
 

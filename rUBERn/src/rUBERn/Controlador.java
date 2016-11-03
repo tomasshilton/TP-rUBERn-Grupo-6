@@ -10,14 +10,13 @@ public class Controlador {
     private HashMap<String,Cliente> clientes= new HashMap<>();
     private HashMap<String, Chofer> choferes;
     private Buscador buscador;
-    private ArrayList<Registro> registros;
     private BuscadorDeRegistros buscadorDeRegistros;
 
     public Controlador(HashMap<String,Chofer> choferes){
         this.choferes = choferes;
         ArrayList<Chofer> choferesList = new ArrayList<Chofer>(choferes.values());
         this.buscador = new Buscador(choferesList);
-        buscadorDeRegistros = new BuscadorDeRegistros(registros);
+        buscadorDeRegistros = new BuscadorDeRegistros(new ArrayList<Registro>());
     }
 
     public void nuevoCliente(Cliente clienteAAgregar) {
@@ -33,7 +32,6 @@ public class Controlador {
         this.buscador = new Buscador(choferesList);
     }
     public void addRegistro(Registro registroAAgregar){
-        registros.add(registroAAgregar);
         buscadorDeRegistros.addRegistro(registroAAgregar);
     }
 
@@ -75,12 +73,30 @@ public class Controlador {
         throw new NoSeEncontroElClienteException("No se pudo hallar el cliente buscado.");
     }
 
-    public ArrayList<Registro> buscarRegistrosByCliente(Cliente clienteBuscado){
-        return buscadorDeRegistros.buscarRegistrosByCliente(clienteBuscado);
+    public void buscarRegistrosByCliente(Cliente clienteBuscado) {
+        ArrayList<Registro> registrosByCliente = buscadorDeRegistros.buscarRegistrosByCliente(clienteBuscado);
+        System.out.println("Los viajes de este cliente son:");
+        for (Registro registroAImprimir : registrosByCliente){
+            System.out.println("Id del chofer: " + registroAImprimir.getChofer().getId());
+            System.out.println("Distancia del viaje: " + registroAImprimir.getViaje().getDistance());
+            System.out.println("Cantidad de pasajeros: " + registroAImprimir.getViaje().getNumberOfPassenger());
+            System.out.println("Precio: " + registroAImprimir.getViaje().getPrecio());
+            System.out.println("Dinero para el chofer: " + registroAImprimir.getDineroParaChofer());
+            System.out.println("Dinero para rUBERn: " + registroAImprimir.getDineroParaRUBERn());
+        }
     }
 
-    public ArrayList<Registro> buscarRegistrosByChofer(Chofer choferBuscado){
-        return buscadorDeRegistros.buscarRegistrosByChofer(choferBuscado);
+    public void buscarRegistrosByChofer(Chofer choferBuscado){
+        ArrayList<Registro> registrosByChofer = buscadorDeRegistros.buscarRegistrosByChofer(choferBuscado);
+        System.out.println("Los viajes de este chofer son:");
+        for (Registro registroAImprimir : registrosByChofer){
+            System.out.println("Id del cliente: " + registroAImprimir.getCliente().getId());
+            System.out.println("Distancia del viaje: " + registroAImprimir.getViaje().getDistance());
+            System.out.println("Cantidad de pasajeros: " + registroAImprimir.getViaje().getNumberOfPassenger());
+            System.out.println("Precio: " + registroAImprimir.getViaje().getPrecio());
+            System.out.println("Dinero para el chofer: " + registroAImprimir.getDineroParaChofer());
+            System.out.println("Dinero para rUBERn: " + registroAImprimir.getDineroParaRUBERn());
+        }
     }
 
     public HashMap<String, Chofer> getChoferes() {
