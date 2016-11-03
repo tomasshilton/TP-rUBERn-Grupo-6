@@ -14,12 +14,12 @@ public class Chofer {
     private Auto choferAuto;
     private Coordenada choferCoordenas;
     private Viaje viaje;
-    private Estado unEstado;
+    private Estado unEstado = new Online(this);
 
     public Chofer(Auto choferAuto, double X, double Y){
         this.choferAuto =choferAuto;
         this.choferCoordenas= new Coordenada(X,Y);
-        this.unEstado= new Online();
+        this.unEstado= new Online(this);
     }
 
     public void setCoordenadas(Coordenada newCoordenadas){

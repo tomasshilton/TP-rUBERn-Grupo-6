@@ -7,8 +7,12 @@ public class Offline implements Estado{
 
     private Chofer chofer;
 
+    public Offline(Chofer chofer1){
+        chofer = chofer1;
+    }
+
     public void goOnline(){
-        chofer.setEstado(new Online());
+        chofer.setEstado(new Online(chofer));
     }
 
     public void goOffline(){}
