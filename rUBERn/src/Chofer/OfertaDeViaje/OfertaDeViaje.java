@@ -23,6 +23,13 @@ public abstract class OfertaDeViaje {
                 +"------------------");
     }
 
+    public void opcionesDeOferta(){
+        System.out.println("Le ha llegado una solicitud de viaje.¿Que desea hacer?"+"\n"
+                +"1.Pedir informacion del viaje"+"\n"
+                +"2.Aceptar Viaje"+"\n"
+                +"3.Rechazar Viaje");
+    }
+
     public int elegirOpcionDeOferta(){
         Scanner input = new Scanner(System.in);
         int comando = input.nextInt();

@@ -70,10 +70,9 @@ public class Chofer {
         OfertaDeViaje oferta= new RechazarOferta(viaje);
 
         while (next == 1){
-            System.out.println("Le ha llegado una solicitud de viaje.¿Que desea hacer?"+"\n"
-                    +"1.Pedir informacion del viaje"+"\n"
-                    +"2.Aceptar Viaje"+"\n"
-                    +"3.Rechazar Viaje");
+
+            oferta.opcionesDeOferta();
+
             int comando = oferta.elegirOpcionDeOferta();
 
             if (comando == 1) {
@@ -88,35 +87,6 @@ public class Chofer {
         }
         return oferta.responderOferta();
     }
-
-    public boolean evaluateOferta2(Viaje viaje){
-        OfertaDeViaje oferta = new RechazarOferta(viaje);
-        System.out.println("Le ha llegado una solicitud de viaje.¿Que desea hacer?"+"\n"
-                +"1. Pedir informacion del viaje"+"\n"
-                +"2.Aceptar Viaje"+"\n"
-                +"3.Rechazar Viaje");
-        Scanner input = new Scanner(System.in);
-        int comando = input.nextInt();
-        switch (comando){
-            case 1:
-                System.out.println("------------------"+"\n"
-                        +"Punto de encuentro: ("+viaje.getDesde().getX()+","+viaje.getDesde().getY()+")" +"\n"
-                        +"Punto de Destino: ("+viaje.getDestino().getX()+","+viaje.getDestino().getY()+")" +"\n"
-                        +"Cantidad de personas: "+viaje.getNumberOfPassenger()+"\n"
-                        +"------------------");
-                evaluateOferta2(viaje);
-                break;
-            case 2:
-                oferta = new AceptarOferta(viaje);
-                break;
-            case 3:
-                break;
-            default:
-                evaluateOferta2(viaje);
-                break;
-        }
-        return oferta.responderOferta();
-    } /**CORREGIR Y HACER TEST, IDEA BIEN PERO NO SALE BIEN DEL LOOP*/
 
     public void setEstado(Estado estado){
         unEstado=estado;
