@@ -65,24 +65,28 @@ public class Chofer {
     }
 
     public boolean evaluateOferta(Viaje viaje){
-        /**AGREGAAR LOS DATOS DEL VIAJE PARA CONSOLA
-         *  EL METEDO EVALUAROFERTA2 SOLUCIONA ESTO
-         *  */
 
-        System.out.println("¿Que desea aceptar el viaje?"+"\n"+"1)Aceptar"+" \n"+"2)Rechazar");
+        int next = 1;
+        OfertaDeViaje oferta= new RechazarOferta(viaje);
 
-        Scanner respuesta = new Scanner(System.in);
-        int comando=respuesta.nextInt();
-        if(comando == 1){
-            setViaje(viaje);
-            return true;
+        while (next == 1){
+            System.out.println("Le ha llegado una solicitud de viaje.¿Que desea hacer?"+"\n"
+                    +"1.Pedir informacion del viaje"+"\n"
+                    +"2.Aceptar Viaje"+"\n"
+                    +"3.Rechazar Viaje");
+            int comando = oferta.elegirOpcionDeOferta();
+
+            if (comando == 1) {
+                oferta.pedirInfoDeViaje();
+            }
+            else if (comando == 2){
+                next=2;
+                oferta = new AceptarOferta(viaje);
+            }else{
+                next=3;
+            }
         }
-        else if(!(comando==2)){
-            System.out.println("Ingrese una opcion correcta.");
-            evaluateOferta(viaje);
-        }
-        return false;
-
+        return oferta.responderOferta();
     }
 
     public boolean evaluateOferta2(Viaje viaje){

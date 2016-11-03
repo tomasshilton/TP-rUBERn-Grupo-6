@@ -70,9 +70,11 @@ public class Menu {
                 case 6:
                     FormularioChofer formularioRemoverChofer = new FormularioChofer();
                     controlador.removerChofer(formularioRemoverChofer.getChoferID());
+                    break;
                 case 0:
                     System.out.println("Saliendo");
                     running=false;
+                    break;
                 default:
                     System.out.println("Por favor ingrese un comando correcto dentro del menú.");
             }
