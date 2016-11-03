@@ -57,11 +57,11 @@ public class Menu {
                     break;
                 case 3:
                     FormularioChofer formularioFinalizarJornada=new FormularioChofer();
-                    controlador.getChofer(formularioFinalizarJornada.getChoferID()).goOffline();
+                    controlador.getChofer(formularioFinalizarJornada.getChoferID()).setEstado(new Offline());
                     break;
                 case 4:
                     FormularioChofer formularioIniciarJornada=new FormularioChofer();
-                    controlador.getChofer(formularioIniciarJornada.getChoferID()).goOnline();
+                    controlador.getChofer(formularioIniciarJornada.getChoferID()).setEstado(new Online());
                     break;
                 case 5:
                     FormularioAgregarChofer formularioAgregarChofer = new FormularioAgregarChofer();
@@ -73,10 +73,8 @@ public class Menu {
                 case 0:
                     System.out.println("Saliendo");
                     running=false;
-                    break;
                 default:
                     System.out.println("Por favor ingrese un comando correcto dentro del menú.");
-                    break;
             }
         }
     }
