@@ -64,7 +64,7 @@ public class Chofer {
         return choferAuto;
     }
 
-    public boolean evaluateOferta(Viaje viaje){
+    public boolean evaluateViaje(Viaje viaje){
 
         int next = 1;
         OfertaDeViaje oferta= new RechazarOferta(viaje);

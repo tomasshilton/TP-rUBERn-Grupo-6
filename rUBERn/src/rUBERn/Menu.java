@@ -77,6 +77,7 @@ public class Menu {
                     break;
                 default:
                     System.out.println("Por favor ingrese un comando correcto dentro del menú.");
+                    break;
             }
         }
     }

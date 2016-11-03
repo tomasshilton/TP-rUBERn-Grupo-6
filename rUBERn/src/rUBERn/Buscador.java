@@ -1,7 +1,6 @@
 package rUBERn;
 
 import Chofer.Chofer;
-import Chofer.Estados.Online;
 
 import java.util.ArrayList;
 
@@ -29,7 +28,7 @@ public class Buscador {
         ArrayList<Chofer> choferesPosiblesPorCostoDeImagen = sortByCostoDeImagen(choferesPosibles, viaje);
 
         for(Chofer choferATestear:choferesPosiblesPorCostoDeImagen) {
-            if (choferATestear.evaluateOferta(viaje)) {
+            if (choferATestear.evaluateViaje(viaje)) {
                 choferATestear.setViaje(viaje);
                 return;
             }
@@ -42,7 +41,7 @@ public class Buscador {
     public ArrayList<Chofer> filterOnline(ArrayList<Chofer> choferesAEvaluar){
         ArrayList<Chofer> choferesOnline = new ArrayList<Chofer>();
         for(Chofer choferATestear: choferesAEvaluar){
-            if (choferATestear.disponible()){
+            if (choferATestear.disponibilidad()){
                 choferesOnline.add(choferATestear);
             }
         }
