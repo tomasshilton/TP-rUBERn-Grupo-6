@@ -73,6 +73,7 @@ public class Menu {
                 case 0:
                     System.out.println("Saliendo");
                     running=false;
+                    break;
                 default:
                     System.out.println("Por favor ingrese un comando correcto dentro del menú.");
             }
