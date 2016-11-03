@@ -11,8 +11,8 @@ public class AceptarOferta extends OfertaDeViaje{
     }
 
     public boolean responderOferta(){
-        System.out.println("Uds ha aceptado la oferta del viaje con destino: ("+viaje.getDestino().getX()+","
-                +viaje.getDestino().getY()+")"+"\n"+"Cantidad de pasajeros a transportar: "+viaje.getNumberOfPassenger());
+        System.out.println("\n"+"Uds ha aceptado la oferta del viaje con destino: ("+viaje.getDestino().getX()+","
+                +viaje.getDestino().getY()+")"+"\n"+"Cantidad de pasajeros a transportar: "+viaje.getNumberOfPassenger()+"\n");
 
         return true;
     }

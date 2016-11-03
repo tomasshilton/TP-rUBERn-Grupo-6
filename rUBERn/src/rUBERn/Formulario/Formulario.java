@@ -9,7 +9,7 @@ public class Formulario {
     String clienteID;
     int destinoX;
     int destinoY;
-    int cant;
+    int cantidad;
     String choferID;
 
     public int getCoordenadaX() {
@@ -32,8 +32,8 @@ public class Formulario {
         return destinoY;
     }
 
-    public int getCant() {
-        return cant;
+    public int getCantidad() {
+        return cantidad;
     }
 
     public String getChoferID() {

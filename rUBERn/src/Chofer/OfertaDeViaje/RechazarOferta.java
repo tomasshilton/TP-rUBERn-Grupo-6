@@ -11,7 +11,7 @@ public class RechazarOferta extends OfertaDeViaje{
     }
 
     public boolean responderOferta(){
-        System.out.println("Ha rechazado el viaje.");
+        System.out.println("\n"+"Ha rechazado la oferta."+"\n");
         return false;
     }
 }

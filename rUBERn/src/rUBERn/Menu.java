@@ -44,7 +44,7 @@ public class Menu {
                 case 1:
                     FormularioCliente formularioCliente = new FormularioCliente();
                     controlador.nuevoCliente(formularioCliente.getClienteID(),new Cliente(new Coordenada(formularioCliente.getCoordenadaX(),formularioCliente.getCoordenadaY())));
-                    controlador.getCliente(formularioCliente.getClienteID()).askForTrip(new Coordenada(formularioCliente.getDestinoX(),formularioCliente.getDestinoY()),formularioCliente.getCant());
+                    controlador.getCliente(formularioCliente.getClienteID()).askForTrip(new Coordenada(formularioCliente.getDestinoX(),formularioCliente.getDestinoY()),formularioCliente.getCantidad());
                     controlador.darViajeAChofer(controlador.getCliente(formularioCliente.getClienteID()).getViaje());
                     break;
                 case 2:

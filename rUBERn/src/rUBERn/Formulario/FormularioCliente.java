@@ -21,8 +21,8 @@ public class FormularioCliente extends Formulario{
         destinoX = dX.nextInt();
         Scanner dY = new Scanner(System.in);
         destinoY = dY.nextInt();
-        System.out.println("Cuantos pasajeros son?");
+        System.out.println("¿Cuantos pasajeros son?");
         Scanner cantidad=new Scanner(System.in);
-        cant = cantidad.nextInt();
+        this.cantidad = cantidad.nextInt();
     }
 }
