@@ -6,7 +6,7 @@ import java.util.Scanner;
 /**
  * Created by Simon1 on 30-Oct-16.
  */
-public class FormularioAgregarChofer extends Formulario {
+public class FormularioAgregarChofer extends FormularioChofer {
     String categoria;
     int capacidad;
     String marca;
@@ -14,9 +14,7 @@ public class FormularioAgregarChofer extends Formulario {
     double costoAdicional;
 
     public FormularioAgregarChofer(){
-        System.out.println("Ingrese el ID del chofer a agregar");
-        Scanner choferAAgregar = new Scanner(System.in);
-        choferID = choferAAgregar.next();
+        super();
         System.out.println("Ingrese la marca, el modelo, la capacidad, el costo adicional, y la categoria del auto del nuevo chofer");
         Scanner scannerMarca = new Scanner(System.in);
         marca = scannerMarca.next();
