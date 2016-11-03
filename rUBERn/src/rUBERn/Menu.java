@@ -57,11 +57,11 @@ public class Menu {
                     break;
                 case 3:
                     FormularioChofer formularioFinalizarJornada=new FormularioChofer();
-                    controlador.getChofer(formularioFinalizarJornada.getChoferID()).setEstado(new Offline());
+                    controlador.getChofer(formularioFinalizarJornada.getChoferID()).goOffline();
                     break;
                 case 4:
                     FormularioChofer formularioIniciarJornada=new FormularioChofer();
-                    controlador.getChofer(formularioIniciarJornada.getChoferID()).setEstado(new Online());
+                    controlador.getChofer(formularioIniciarJornada.getChoferID()).goOnline();
                     break;
                 case 5:
                     FormularioAgregarChofer formularioAgregarChofer = new FormularioAgregarChofer();

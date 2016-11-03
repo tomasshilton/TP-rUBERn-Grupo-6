@@ -5,6 +5,7 @@ import Chofer.Chofer;
 
 public interface Estado {
 
+
     void goOnline();
 
     void goOffline();

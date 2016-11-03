@@ -6,11 +6,13 @@ import Chofer.Chofer;
 
 public class Online implements Estado{
 
+    public Online(Chofer chofer){
+        this.chofer=chofer;
+    }
+
     private Chofer chofer;
 
-    public Online(Chofer chofer1){
-        chofer = chofer1;
-    }
+
 
     public void goOnline(){}
 

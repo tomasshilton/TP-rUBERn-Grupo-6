@@ -14,7 +14,7 @@ public class Chofer {
     private Auto choferAuto;
     private Coordenada choferCoordenas;
     private Viaje viaje;
-    private Estado unEstado = new Online(this);
+    private Estado unEstado;
 
     public Chofer(Auto choferAuto, double X, double Y){
         this.choferAuto =choferAuto;
