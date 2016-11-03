@@ -25,4 +25,8 @@ public class Working implements Estado{
     public boolean disponible(){
         return false;
     }
+
+    public String toString(){
+        return "Working";
+    }
 }

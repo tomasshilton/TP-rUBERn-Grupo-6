@@ -14,4 +14,5 @@ public interface Estado {
 
     boolean disponible();
 
+    String toString();
 }

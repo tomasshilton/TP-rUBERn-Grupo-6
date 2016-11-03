@@ -24,4 +24,8 @@ public class Offline implements Estado{
     public boolean disponible(){
         return false;
     }
+
+    public String toString(){
+        return "Offline";
+    }
 }

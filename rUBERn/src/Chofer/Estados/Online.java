@@ -17,19 +17,19 @@ public class Online implements Estado{
     public void goOnline(){}
 
     public void goOffline(){
-
         chofer.setEstado(new Offline(chofer));
-
     }
 
     public void working(){
-
         chofer.setEstado(new Working(chofer));
-
     }
 
     public boolean disponible(){
         return true;
+    }
+
+    public String toString(){
+        return "Online";
     }
 
 }
