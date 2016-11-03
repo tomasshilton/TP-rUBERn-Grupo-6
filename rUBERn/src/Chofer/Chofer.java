@@ -15,11 +15,13 @@ public class Chofer {
     private Coordenada choferCoordenas;
     private Viaje viaje;
     private Estado unEstado;
+    private String id;
 
-    public Chofer(Auto choferAuto, double X, double Y){
+    public Chofer(String id,Auto choferAuto, double X, double Y){
         this.choferAuto =choferAuto;
         this.choferCoordenas= new Coordenada(X,Y);
         this.unEstado= new Online(this);
+        this.id=id;
     }
 
     public void setCoordenadas(Coordenada newCoordenadas){
@@ -86,6 +88,10 @@ public class Chofer {
             }
         }
         return oferta.responderOferta();
+    }
+
+    public String getId() {
+        return id;
     }
 
     public void setEstado(Estado estado){

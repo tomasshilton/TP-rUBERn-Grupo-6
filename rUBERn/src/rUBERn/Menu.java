@@ -13,13 +13,13 @@ public class Menu {
 
     public static void main(String[] args) {
         boolean running = true;
-        Chofer chofer1=new Chofer(new Auto("marca1","modelo1",2,new Categoria("categoria1",1)),0,0);
-        Chofer chofer2=new Chofer(new Auto("marca2","modelo2",3,new Categoria("categoria2",2)),0,0);
-        Chofer chofer3=new Chofer(new Auto("marca3","modelo3",1,new Categoria("categoria3",3)),0,0);
+        Chofer chofer1=new Chofer("1",new Auto("marca1","modelo1",2,new Categoria("categoria1",1)),0,0);
+        Chofer chofer2=new Chofer("2",new Auto("marca2","modelo2",3,new Categoria("categoria2",2)),0,0);
+        Chofer chofer3=new Chofer("3",new Auto("marca3","modelo3",1,new Categoria("categoria3",3)),0,0);
         HashMap<String,Chofer> choferes = new HashMap<>();
-        choferes.put("1",chofer1);
-        choferes.put("2",chofer2);
-        choferes.put("3",chofer3);
+        choferes.put(chofer1.getId(),chofer1);
+        choferes.put(chofer2.getId(),chofer2);
+        choferes.put(chofer3.getId(),chofer3);
 
         Controlador controlador = new Controlador(choferes);
 
@@ -34,6 +34,7 @@ public class Menu {
             System.out.println("rUBERn: "+"\n"+"\t"+
                     "5.Agregar Chofer"+"\n"+"\t"+
                     "6.Sacar Chofer"+"\n"+"\t"+
+                    "7.Mostrar Choferes"+"\n"+"\t"+
                     "0.Salir");
             System.out.println(" \nIngrese un comando");
             Scanner input = new Scanner(System.in);
@@ -43,7 +44,7 @@ public class Menu {
             switch (comando){
                 case 1:
                     FormularioCliente formularioCliente = new FormularioCliente();
-                    controlador.nuevoCliente(formularioCliente.getClienteID(),new Cliente(new Coordenada(formularioCliente.getCoordenadaX(),formularioCliente.getCoordenadaY())));
+                    controlador.nuevoCliente(new Cliente(new Coordenada(formularioCliente.getCoordenadaX(),formularioCliente.getCoordenadaY()),formularioCliente.getClienteID()));
                     controlador.getCliente(formularioCliente.getClienteID()).askForTrip(new Coordenada(formularioCliente.getDestinoX(),formularioCliente.getDestinoY()),formularioCliente.getCantidad());
                     controlador.darViajeAChofer(controlador.getCliente(formularioCliente.getClienteID()).getViaje());
                     break;
@@ -65,7 +66,7 @@ public class Menu {
                     break;
                 case 5:
                     FormularioAgregarChofer formularioAgregarChofer = new FormularioAgregarChofer();
-                    controlador.agregarChofer(formularioAgregarChofer.getChoferID(),new Chofer(new Auto(formularioAgregarChofer.getMarca(),formularioAgregarChofer.getModelo(),formularioAgregarChofer.getCapacidad(),new Categoria(formularioAgregarChofer.getCategoria(),formularioAgregarChofer.getCostoAdicional())),0,0));
+                    controlador.agregarChofer(new Chofer(formularioAgregarChofer.getChoferID(),new Auto(formularioAgregarChofer.getMarca(),formularioAgregarChofer.getModelo(),formularioAgregarChofer.getCapacidad(),new Categoria(formularioAgregarChofer.getCategoria(),formularioAgregarChofer.getCostoAdicional())),0,0));
                     break;
                 case 6:
                     FormularioChofer formularioRemoverChofer = new FormularioChofer();

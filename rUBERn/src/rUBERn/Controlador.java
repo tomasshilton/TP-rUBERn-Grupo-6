@@ -20,14 +20,14 @@ public class Controlador {
         buscadorDeRegistros = new BuscadorDeRegistros(registros);
     }
 
-    public void nuevoCliente(String insertDNI, Cliente clienteAAgregar) {
-        if (!clientes.containsKey(insertDNI)) {
-            clientes.put(insertDNI, clienteAAgregar);
+    public void nuevoCliente(Cliente clienteAAgregar) {
+        if (!clientes.containsKey(clienteAAgregar.getId())) {
+            clientes.put(clienteAAgregar.getId(), clienteAAgregar);
         }
     }
 
-    public void agregarChofer(String insertDNI,Chofer choferAAgregar){
-        choferes.put(insertDNI,choferAAgregar);
+    public void agregarChofer(Chofer choferAAgregar){
+        choferes.put(choferAAgregar.getId(),choferAAgregar);
 
         ArrayList<Chofer> choferesList = new ArrayList<Chofer>(choferes.values());
         this.buscador = new Buscador(choferesList);
@@ -83,4 +83,7 @@ public class Controlador {
         return buscadorDeRegistros.buscarRegistrosByChofer(choferBuscado);
     }
 
+    public HashMap<String, Chofer> getChoferes() {
+        return choferes;
+    }
 }
