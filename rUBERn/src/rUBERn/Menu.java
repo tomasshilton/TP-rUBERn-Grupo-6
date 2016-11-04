@@ -51,7 +51,9 @@ public class Menu {
                     FormularioCliente formularioCliente = new FormularioCliente();
                     controlador.nuevoCliente(new Cliente(new Coordenada(formularioCliente.getCoordenadaX(),formularioCliente.getCoordenadaY()),formularioCliente.getClienteID()));
                     controlador.getCliente(formularioCliente.getClienteID()).askForTrip(new Coordenada(formularioCliente.getDestinoX(),formularioCliente.getDestinoY()),formularioCliente.getCantidad());
-                    controlador.darViajeAChofer(controlador.getCliente(formularioCliente.getClienteID()).getViaje());
+                    if(controlador.darViajeAChofer(controlador.getCliente(formularioCliente.getClienteID()).getViaje()) ){
+                        controlador.getCliente(formularioCliente.getClienteID()).travelling();
+                    }
                     break;
                 case 2:
                     FormularioChofer formularioTerminarViaje=new FormularioChofer();

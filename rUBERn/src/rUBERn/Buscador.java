@@ -21,7 +21,7 @@ public class Buscador {
         choferes.remove(choferToRemove);
     }
 
-    public void darViajeAChofer(Viaje viaje){
+    public boolean darViajeAChofer(Viaje viaje){
         ArrayList<Chofer> choferesAEvaluar = choferes;
         ArrayList<Chofer> choferesOnline = filterOnline(choferesAEvaluar);
         ArrayList<Chofer> choferesPosibles = filterCapacity(viaje, choferesOnline);
@@ -32,11 +32,12 @@ public class Buscador {
             System.out.println("Chofer "+choferATestear.getId());
             if (choferATestear.evaluateViaje(viaje)) {
                 choferATestear.setViaje(viaje);
-                return;
+                return true;
             }
         }
 
         System.out.println("No se encontro chofer a quien darle el viaje");
+        return false;
 
     }
 

@@ -22,7 +22,6 @@ public class Cliente {
     public void askForTrip(Coordenada destino,int numbersOfPassenger){
         if(!(isTravelling())){
             viaje = new Viaje(posicion, destino,numbersOfPassenger);
-            travelling=true;
         } else throw new ViajeEnProgresoException("El cliente ya se encuentra viajando.");
     }
 
@@ -36,6 +35,10 @@ public class Cliente {
 
     public boolean isTravelling(){
         return travelling;
+    }
+
+    public void travelling(){
+        travelling=true;
     }
 
     public void terminarViaje(){

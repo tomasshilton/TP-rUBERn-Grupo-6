@@ -68,8 +68,8 @@ public class Controlador {
         throw new NoSeEncontroElChoferException("No se pudo hallar el chofer buscado.");
     }
 
-    public void darViajeAChofer(Viaje viajeADar){
-        buscador.darViajeAChofer(viajeADar);
+    public boolean darViajeAChofer(Viaje viajeADar){
+       return buscador.darViajeAChofer(viajeADar);
     }
 
     public Cliente getClienteByViaje(Viaje viaje){
