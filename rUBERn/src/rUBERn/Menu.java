@@ -1,4 +1,5 @@
 package rUBERn;
+import Chofer.Estados.*;
 import Cliente.Cliente;
 import Chofer.*;
 import rUBERn.Formulario.FormularioAgregarChofer;
@@ -90,7 +91,7 @@ public class Menu {
                     break;
                 case 10:
                     FormularioCliente formularioBuscarCliente = new FormularioCliente();
-                    controlador.buscarRegistrosByCliente(controlador.getCliente(formularioBuscarCliente.getClienteID()));
+                    controlador.buscarRegistrosByChofer(controlador.getChofer(formularioBuscarCliente.getClienteID()));
                     break;
                 case 0:
                     System.out.println("Saliendo");
