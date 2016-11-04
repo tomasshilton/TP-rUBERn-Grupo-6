@@ -38,6 +38,7 @@ public class Menu {
                     "8.Mostrar Clientes"+"\n"+"\t"+
                     "9.Mostrar registros de chofer"+"\n"+"\t"+
                     "10.Mostrar registros de cliente"+"\n"+"\t"+
+                    "11.Mostrar comisiones de rUBERn"+"\n"+"\t"+
                     "0.Salir");
             System.out.println(" \nIngrese un comando");
             Scanner input = new Scanner(System.in);
@@ -93,6 +94,8 @@ public class Menu {
                     FormularioCliente formularioBuscarCliente = new FormularioCliente();
                     controlador.buscarRegistrosByChofer(controlador.getChofer(formularioBuscarCliente.getClienteID()));
                     break;
+                case 11:
+                    controlador.mostrarComisiones();
                 case 0:
                     System.out.println("Saliendo");
                     running=false;

@@ -112,6 +112,7 @@ public class Controlador {
 
     public void mostrarComisiones(){
         System.out.println("Las comisiones ganadas por rUBERn son:");
+        double comisionTotal = 0;
         for (Registro registroAImprimir : buscadorDeRegistros.getRegistros()){
             int i = 1;
             System.out.println("Viaje " + i + ":");
@@ -119,7 +120,9 @@ public class Controlador {
             System.out.println("Id del chofer: " + registroAImprimir.getChofer().getId());
             System.out.println("Comision para rUBERn: " + registroAImprimir.getDineroParaRUBERn());
             i++;
+            comisionTotal += registroAImprimir.getDineroParaRUBERn();
         }
+        System.out.println("El total ganado por rUBERn por las comisiones de estos viajes es de: " + comisionTotal);
     }
 
     public HashMap<String, Chofer> getChoferes() {
