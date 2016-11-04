@@ -38,6 +38,7 @@ public class Chofer {
     }
 
     public void terminarViaje(){
+        viaje = null;
         unEstado.goOnline();
         setCoordenadas(viaje.getDestino());
     }
