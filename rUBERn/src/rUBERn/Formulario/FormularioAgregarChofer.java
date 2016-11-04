@@ -7,7 +7,7 @@ import java.util.Scanner;
 /**
  * Created by Simon1 on 30-Oct-16.
  */
-public class FormularioAgregarChofer extends FormularioChofer {
+public class FormularioAgregarChofer extends FormularioDNI {
     private int capacidad;
     private String marca;
     private String modelo;

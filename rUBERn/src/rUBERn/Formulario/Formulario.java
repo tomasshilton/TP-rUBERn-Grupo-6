@@ -6,11 +6,10 @@ package rUBERn.Formulario;
 public class Formulario {
     int coordenadaX;
     int coordenadaY;
-    String clienteID;
     int destinoX;
     int destinoY;
     int cantidad;
-    String choferID;
+    String ID;
 
     public int getCoordenadaX() {
         return coordenadaX;
@@ -20,8 +19,8 @@ public class Formulario {
         return coordenadaY;
     }
 
-    public String getClienteID() {
-        return clienteID;
+    public String getID() {
+        return ID;
     }
 
     public int getDestinoX() {
@@ -36,7 +35,4 @@ public class Formulario {
         return cantidad;
     }
 
-    public String getChoferID() {
-        return choferID;
-    }
 }

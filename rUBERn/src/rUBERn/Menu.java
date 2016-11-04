@@ -1,9 +1,8 @@
 package rUBERn;
-import Chofer.Estados.*;
 import Cliente.Cliente;
 import Chofer.*;
 import rUBERn.Formulario.FormularioAgregarChofer;
-import rUBERn.Formulario.FormularioChofer;
+import rUBERn.Formulario.FormularioDNI;
 import rUBERn.Formulario.FormularioCliente;
 
 import java.io.IOException;
@@ -41,7 +40,7 @@ public class Menu {
                     "10.Mostrar registros de cliente"+"\n"+"\t"+
                     "11.Mostrar comisiones de rUBERn"+"\n"+"\t"+
                     "0.Salir");
-            System.out.println(" \nIngrese un comando");
+            System.out.println(" \nIngrese un comando:");
             Scanner input = new Scanner(System.in);
             int comando = input.nextInt();
 
@@ -49,40 +48,40 @@ public class Menu {
             switch (comando){
                 case 1:
                     FormularioCliente formularioCliente = new FormularioCliente();
-                    controlador.nuevoCliente(new Cliente(new Coordenada(formularioCliente.getCoordenadaX(),formularioCliente.getCoordenadaY()),formularioCliente.getClienteID()));
-                    controlador.getCliente(formularioCliente.getClienteID()).askForTrip(new Coordenada(formularioCliente.getDestinoX(),formularioCliente.getDestinoY()),formularioCliente.getCantidad());
-                    if(controlador.darViajeAChofer(controlador.getCliente(formularioCliente.getClienteID()).getViaje()) ){
-                        controlador.getCliente(formularioCliente.getClienteID()).travelling();
+                    controlador.nuevoCliente(new Cliente(new Coordenada(formularioCliente.getCoordenadaX(),formularioCliente.getCoordenadaY()),formularioCliente.getID()));
+                    controlador.getCliente(formularioCliente.getID()).askForTrip(new Coordenada(formularioCliente.getDestinoX(),formularioCliente.getDestinoY()),formularioCliente.getCantidad());
+                    if(controlador.darViajeAChofer(controlador.getCliente(formularioCliente.getID()).getViaje()) ){
+                        controlador.getCliente(formularioCliente.getID()).travelling();
                     }
                     break;
                 case 2:
-                    FormularioChofer formularioTerminarViaje=new FormularioChofer();
-                    if(controlador.getChofer(formularioTerminarViaje.getChoferID()).getViaje() != null) {
-                        Viaje viajeATerminar = controlador.getChofer(formularioTerminarViaje.getChoferID()).getViaje();
-                        Registro nuevoRegistro = new Registro(viajeATerminar, controlador.getClienteByViaje(viajeATerminar), controlador.getChofer(formularioTerminarViaje.getChoferID()));
+                    FormularioDNI formularioTerminarViaje=new FormularioDNI();
+                    if(controlador.getChofer(formularioTerminarViaje.getID()).getViaje() != null) {
+                        Viaje viajeATerminar = controlador.getChofer(formularioTerminarViaje.getID()).getViaje();
+                        Registro nuevoRegistro = new Registro(viajeATerminar, controlador.getClienteByViaje(viajeATerminar), controlador.getChofer(formularioTerminarViaje.getID()));
                         controlador.addRegistro(nuevoRegistro);
                         controlador.write();
                         controlador.getClienteByViaje(viajeATerminar).terminarViaje();
-                        controlador.getChofer(formularioTerminarViaje.getChoferID()).terminarViaje();
+                        controlador.getChofer(formularioTerminarViaje.getID()).terminarViaje();
                     } else {
                         System.out.println("El chofer seleccionado no esta realizando ningun viaje");
                     }
                     break;
                 case 3:
-                    FormularioChofer formularioFinalizarJornada=new FormularioChofer();
-                    controlador.getChofer(formularioFinalizarJornada.getChoferID()).goOffline();
+                    FormularioDNI formularioFinalizarJornada=new FormularioDNI();
+                    controlador.getChofer(formularioFinalizarJornada.getID()).goOffline();
                     break;
                 case 4:
-                    FormularioChofer formularioIniciarJornada=new FormularioChofer();
-                    controlador.getChofer(formularioIniciarJornada.getChoferID()).goOnline();
+                    FormularioDNI formularioIniciarJornada=new FormularioDNI();
+                    controlador.getChofer(formularioIniciarJornada.getID()).goOnline();
                     break;
                 case 5:
                     FormularioAgregarChofer formularioAgregarChofer = new FormularioAgregarChofer();
-                    controlador.agregarChofer(new Chofer(formularioAgregarChofer.getChoferID(),new Auto(formularioAgregarChofer.getMarca(),formularioAgregarChofer.getModelo(),formularioAgregarChofer.getCapacidad(),formularioAgregarChofer.addCategoria()),0,0));
+                    controlador.agregarChofer(new Chofer(formularioAgregarChofer.getID(),new Auto(formularioAgregarChofer.getMarca(),formularioAgregarChofer.getModelo(),formularioAgregarChofer.getCapacidad(),formularioAgregarChofer.addCategoria()),0,0));
                     break;
                 case 6:
-                    FormularioChofer formularioRemoverChofer = new FormularioChofer();
-                    controlador.removerChofer(formularioRemoverChofer.getChoferID());
+                    FormularioDNI formularioRemoverChofer = new FormularioDNI();
+                    controlador.removerChofer(formularioRemoverChofer.getID());
                     break;
                 case 7:
                     controlador.imprmirGrillaChoferes();
@@ -91,15 +90,16 @@ public class Menu {
                     controlador.imprmirGrillaCliente();
                     break;
                 case 9:
-                    FormularioChofer formularioBuscarChofer = new FormularioChofer();
-                    controlador.buscarRegistrosByChofer(controlador.getChofer(formularioBuscarChofer.getChoferID()));
+                    FormularioDNI formularioBuscarChofer = new FormularioDNI();
+                    controlador.buscarRegistrosByChofer(controlador.getChofer(formularioBuscarChofer.getID()));
                     break;
                 case 10:
-                    FormularioCliente formularioBuscarCliente = new FormularioCliente();
-                    controlador.buscarRegistrosByCliente(controlador.getCliente(formularioBuscarCliente.getClienteID()));
+                    FormularioDNI formularioBuscarCliente = new FormularioDNI();
+                    controlador.buscarRegistrosByCliente(controlador.getCliente(formularioBuscarCliente.getID()));
                     break;
                 case 11:
                     controlador.mostrarComisiones();
+                    break;
                 case 0:
                     System.out.println("Saliendo");
                     running=false;
