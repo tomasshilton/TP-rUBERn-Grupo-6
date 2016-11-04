@@ -36,6 +36,8 @@ public class Menu {
                     "6.Sacar Chofer"+"\n"+"\t"+
                     "7.Mostrar Choferes"+"\n"+"\t"+
                     "8.Mostrar Clientes"+"\n"+"\t"+
+                    "9.Mostrar registros de chofer"+"\n"+"\t"+
+                    "10.Mostrar registros de cliente"+"\n"+"\t"+
                     "0.Salir");
             System.out.println(" \nIngrese un comando");
             Scanner input = new Scanner(System.in);
