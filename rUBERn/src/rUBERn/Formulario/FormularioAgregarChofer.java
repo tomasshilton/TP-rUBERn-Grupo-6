@@ -15,7 +15,7 @@ public class FormularioAgregarChofer extends FormularioDNI {
 
     public FormularioAgregarChofer(){
         super();
-        System.out.println("Ingrese la marca, el modelo, la capacidad y el numero correspondiente a la categoria(1-5) del auto del nuevo chofer");
+        System.out.println("Ingrese la marca, el modelo, la capacidad y el numero correspondiente a la categoria(1-5) del auto del nuevo chofer. Por favor ingresar UN VALOR a la vez.");
         Scanner scannerMarca = new Scanner(System.in);
         marca = scannerMarca.next();
         Scanner scannerModelo = new Scanner(System.in);

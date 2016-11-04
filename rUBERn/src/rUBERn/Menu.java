@@ -40,6 +40,7 @@ public class Menu {
                     "10.Mostrar registros de cliente"+"\n"+"\t"+
                     "11.Mostrar comisiones de rUBERn"+"\n"+"\t"+
                     "0.Salir");
+            System.out.println("Por favor ingrese los valores de a uno a la vez.");
             System.out.println(" \nIngrese un comando:");
             Scanner input = new Scanner(System.in);
             int comando = input.nextInt();
