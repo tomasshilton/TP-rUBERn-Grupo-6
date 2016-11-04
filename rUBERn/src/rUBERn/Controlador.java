@@ -28,9 +28,10 @@ public class Controlador {
     }
 
     public void agregarChofer(Chofer choferAAgregar){
-        choferes.put(choferAAgregar.getId(),choferAAgregar);
-        ArrayList<Chofer> choferesList = new ArrayList<Chofer>(choferes.values());
-        buscador.addChofer(choferAAgregar);
+        if(!choferes.containsValue(choferAAgregar)) {
+            choferes.put(choferAAgregar.getId(), choferAAgregar);
+            buscador.addChofer(choferAAgregar);
+        }else System.out.println("El chofer ya existe en el sistema.");
     }
     public void addRegistro(Registro registroAAgregar){
         buscadorDeRegistros.addRegistro(registroAAgregar);
