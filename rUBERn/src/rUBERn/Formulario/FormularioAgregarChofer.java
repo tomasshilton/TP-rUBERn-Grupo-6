@@ -52,19 +52,19 @@ public class FormularioAgregarChofer extends FormularioChofer {
         Categoria ret = null;
         switch (cat){
             case 1:
-                ret = new Categoria("Categoria 1", 1);
+                ret = new Categoria("Categoria 1", 15);
                 break;
             case 2:
-                ret = new Categoria("Categoria 2", 2);
+                ret = new Categoria("Categoria 2", 10);
                 break;
             case 3:
-                ret = new Categoria("Categoria 3", 3);
+                ret = new Categoria("Categoria 3", 7);
                 break;
             case 4:
-                ret = new Categoria("Categoria 4", 4);
+                ret = new Categoria("Categoria 4", 5);
                 break;
             case 5:
-                ret = new Categoria("Categoria 5", 5);
+                ret = new Categoria("Categoria 5", 1);
                 break;
             default:
                 System.out.println("Por favor ingrese un comando correcto.");
