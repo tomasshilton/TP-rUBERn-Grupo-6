@@ -110,6 +110,18 @@ public class Controlador {
         }
     }
 
+    public void mostrarComisiones(){
+        System.out.println("Las comisiones ganadas por rUBERn son:");
+        for (Registro registroAImprimir : buscadorDeRegistros.getRegistros()){
+            int i = 1;
+            System.out.println("Viaje " + i + ":");
+            System.out.println("Id del cliente: " + registroAImprimir.getCliente().getId());
+            System.out.println("Id del chofer: " + registroAImprimir.getChofer().getId());
+            System.out.println("Comision para rUBERn: " + registroAImprimir.getDineroParaRUBERn());
+            i++;
+        }
+    }
+
     public HashMap<String, Chofer> getChoferes() {
         return choferes;
     }
