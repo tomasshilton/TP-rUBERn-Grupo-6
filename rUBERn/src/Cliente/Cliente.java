@@ -6,6 +6,7 @@ import rUBERn.Coordenada;
 public class Cliente {
 
     private Viaje viaje;
+    private boolean travelling=false;
     private Coordenada posicion;
     private String id;
 
@@ -19,8 +20,9 @@ public class Cliente {
     }
 
     public void askForTrip(Coordenada destino,int numbersOfPassenger){
-        if(viaje==null){
+        if(!(isTravelling())){
             viaje = new Viaje(posicion, destino,numbersOfPassenger);
+            travelling=true;
         } else throw new ViajeEnProgresoException("El cliente ya se encuentra viajando.");
     }
 
@@ -32,7 +34,13 @@ public class Cliente {
         return id;
     }
 
+    public boolean isTravelling(){
+        return travelling;
+    }
+
     public void terminarViaje(){
+        posicion=viaje.getDestino();
         viaje = null;
+        travelling=false;
     }
 }
