@@ -79,12 +79,15 @@ public class Controlador {
         ArrayList<Registro> registrosByCliente = buscadorDeRegistros.buscarRegistrosByCliente(clienteBuscado);
         System.out.println("Los viajes de este cliente son:");
         for (Registro registroAImprimir : registrosByCliente){
+            int i = 1;
+            System.out.println("Viaje " + i + ":");
             System.out.println("Id del chofer: " + registroAImprimir.getChofer().getId());
             System.out.println("Distancia del viaje: " + registroAImprimir.getViaje().getDistance());
             System.out.println("Cantidad de pasajeros: " + registroAImprimir.getViaje().getNumberOfPassenger());
             System.out.println("Precio: " + registroAImprimir.getViaje().getPrecio());
             System.out.println("Dinero para el chofer: " + registroAImprimir.getDineroParaChofer());
             System.out.println("Dinero para rUBERn: " + registroAImprimir.getDineroParaRUBERn());
+            i++;
         }
     }
 
@@ -92,12 +95,15 @@ public class Controlador {
         ArrayList<Registro> registrosByChofer = buscadorDeRegistros.buscarRegistrosByChofer(choferBuscado);
         System.out.println("Los viajes de este chofer son:");
         for (Registro registroAImprimir : registrosByChofer){
+            int i = 1;
+            System.out.println("Viaje " + i + ":");
             System.out.println("Id del cliente: " + registroAImprimir.getCliente().getId());
             System.out.println("Distancia del viaje: " + registroAImprimir.getViaje().getDistance());
             System.out.println("Cantidad de pasajeros: " + registroAImprimir.getViaje().getNumberOfPassenger());
             System.out.println("Precio: " + registroAImprimir.getViaje().getPrecio());
             System.out.println("Dinero para el chofer: " + registroAImprimir.getDineroParaChofer());
             System.out.println("Dinero para rUBERn: " + registroAImprimir.getDineroParaRUBERn());
+            i++;
         }
     }
 
