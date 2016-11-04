@@ -13,7 +13,7 @@ public class Working implements Estado{
     }
 
     public void goOnline(){
-        if(chofer.getViaje() != null){
+        if(chofer.getViaje() == null){
             chofer.setEstado(new Online(chofer));
         }else{
             System.out.println("El chofer esta viajando");
