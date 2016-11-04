@@ -97,7 +97,7 @@ public class Menu {
                     controlador.buscarRegistrosByChofer(controlador.getChofer(formularioBuscarCliente.getClienteID()));
                     break;
                 case 11:
-                    controlador.mostrarComisiones();
+                    controlador.mostrarComisiones();//
                 case 0:
                     System.out.println("Saliendo");
                     running=false;
