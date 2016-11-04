@@ -6,12 +6,13 @@ import rUBERn.Formulario.FormularioAgregarChofer;
 import rUBERn.Formulario.FormularioChofer;
 import rUBERn.Formulario.FormularioCliente;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
 
 public class Menu {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         boolean running = true;
         Chofer chofer1=new Chofer("1",new Auto("marca1","modelo1",2,new Categoria("categoria1",1)),0,0);
         Chofer chofer2=new Chofer("2",new Auto("marca2","modelo2",3,new Categoria("categoria2",2)),0,0);
@@ -57,6 +58,7 @@ public class Menu {
                         Viaje viajeATerminar = controlador.getChofer(formularioTerminarViaje.getChoferID()).getViaje();
                         Registro nuevoRegistro = new Registro(viajeATerminar, controlador.getClienteByViaje(viajeATerminar), controlador.getChofer(formularioTerminarViaje.getChoferID()));
                         controlador.addRegistro(nuevoRegistro);
+                        controlador.write(nuevoRegistro);
                         controlador.getClienteByViaje(viajeATerminar).terminarViaje();
                         controlador.getChofer(formularioTerminarViaje.getChoferID()).terminarViaje();
                     } else {

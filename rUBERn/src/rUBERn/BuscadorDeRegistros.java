@@ -36,7 +36,7 @@ public class BuscadorDeRegistros {
         return registrosARetornar;
     }
 
-
-
-
+    public ArrayList<Registro> getRegistros() {
+        return registros;
+    }
 }

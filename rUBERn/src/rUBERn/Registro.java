@@ -40,4 +40,15 @@ public class Registro {
     public double getDineroParaRUBERn() {
         return dineroParaRUBERn;
     }
+
+    @Override
+    public String toString() {
+        return "Registro" +  "\n"+"\t" +
+                "distancia del viaje: " + viaje.getDistance() + "\n"+"\t" +
+                ", cliente: " + cliente.getId() + "\n"+"\t" +
+                ", chofer: " + chofer.getId() + "\n"+"\t" +
+                ", dineroParaChofer: " + dineroParaChofer + "\n"+"\t" +
+                ", dineroParaRUBERn: " + dineroParaRUBERn  +  "\n"+"\t" +
+                "-------------------------------------------------------";
+    }
 }

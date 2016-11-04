@@ -1,5 +1,9 @@
 package rUBERn;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -147,4 +151,19 @@ public class Controlador {
         System.out.println("---------------------------------");
     }
 
+    public void write(Registro registro) throws IOException {
+        String content = registro.toString();
+        File file = new File("registro.txt");
+        if (!file.exists()) {
+            file.createNewFile();
+        }
+        FileWriter fw = new FileWriter(file.getAbsoluteFile());
+        BufferedWriter bw = new BufferedWriter(fw);
+        bw.write(content);
+        bw.close();
+    }
+
+    public BuscadorDeRegistros getBuscadorDeRegistros() {
+        return buscadorDeRegistros;
+    }
 }
