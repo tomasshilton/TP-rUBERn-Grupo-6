@@ -8,12 +8,10 @@ import java.util.Scanner;
  * Created by Simon1 on 30-Oct-16.
  */
 public class FormularioAgregarChofer extends FormularioChofer {
-    String categoria;
-    int capacidad;
-    String marca;
-    String modelo;
-    double costoAdicional;
-    int cat;
+    private int capacidad;
+    private String marca;
+    private String modelo;
+    private int cat;
 
     public FormularioAgregarChofer(){
         super();
@@ -28,10 +26,6 @@ public class FormularioAgregarChofer extends FormularioChofer {
         cat=catScanner.nextInt();
     }
 
-    public String getCategoria() {
-        return categoria;
-    }
-
     public int getCapacidad() {
         return capacidad;
     }
@@ -44,9 +38,6 @@ public class FormularioAgregarChofer extends FormularioChofer {
         return modelo;
     }
 
-    public double getCostoAdicional() {
-        return costoAdicional;
-    }
 
     public Categoria addCategoria(){
         Categoria ret = null;
@@ -71,9 +62,5 @@ public class FormularioAgregarChofer extends FormularioChofer {
                 addCategoria();
         }
         return ret;
-    }
-
-    public int getCat() {
-        return cat;
     }
 }
