@@ -13,9 +13,9 @@ public class Menu {
 
     public static void main(String[] args) throws IOException {
         boolean running = true;
-        Chofer chofer1=new Chofer("1",new Auto("marca1","modelo1",2,new Categoria("categoria1",1)),0,0);
-        Chofer chofer2=new Chofer("2",new Auto("marca2","modelo2",3,new Categoria("categoria2",2)),0,0);
-        Chofer chofer3=new Chofer("3",new Auto("marca3","modelo3",1,new Categoria("categoria3",3)),0,0);
+        Chofer chofer1=new Chofer("1",new Auto("marca1","modelo1",2,new Categoria("Categoria 1",15)),0,0);
+        Chofer chofer2=new Chofer("2",new Auto("marca2","modelo2",3,new Categoria("Categoria 2",10)),0,0);
+        Chofer chofer3=new Chofer("3",new Auto("marca3","modelo3",1,new Categoria("Categoria 3",7)),0,0);
         HashMap<String,Chofer> choferes = new HashMap<>();
         choferes.put(chofer1.getId(),chofer1);
         choferes.put(chofer2.getId(),chofer2);
