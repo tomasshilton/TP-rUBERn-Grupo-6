@@ -48,8 +48,8 @@ public class Registro {
                 "- costo del viaje: " +viaje.getPrecio() + "\n"+"\t" +
                 "- cliente: " + cliente.getId() + "\n"+"\t" +
                 "- chofer: " + chofer.getId() + "\n"+"\t" +
-                "- dineroParaChofer: " + dineroParaChofer + "\n"+"\t" +
-                "- dineroParaRUBERn: " + dineroParaRUBERn  +  "\n"+"\t" +
+                "- dinero para Chofer: " + dineroParaChofer + "\n"+"\t" +
+                "- dinero para RUBERn: " + dineroParaRUBERn  +  "\n"+"\t" +
                 "-------------------------------------------------------"+  "\n";
     }
 }

@@ -75,6 +75,9 @@ public class Controlador {
     public Cliente getClienteByViaje(Viaje viaje){
         ArrayList<Cliente> clientes1 = new ArrayList<Cliente>(clientes.values());
         for (Cliente clienteATestear : clientes1){
+            if(clienteATestear.getViaje()==null){
+                continue;
+            }
             if (clienteATestear.getViaje().equals(viaje)){
                 return clienteATestear;
             }
