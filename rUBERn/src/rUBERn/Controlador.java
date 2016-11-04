@@ -38,8 +38,8 @@ public class Controlador {
 
     public void removerChofer(String insertDNI) {
         if (choferes.containsKey(insertDNI)) {
+            buscador.removeChofer(choferes.get(insertDNI));
             choferes.remove(insertDNI);
-            buscador.removeChofer();
         }else{
             System.out.println("No se encontro el chofer a remover");
         }
