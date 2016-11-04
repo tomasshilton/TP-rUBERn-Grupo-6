@@ -18,7 +18,7 @@ public class Offline implements Estado{
     public void goOffline(){}
 
     public void working(){
-        throw new RuntimeException("El chofer no puede trabajar ya que esta offline");
+        System.out.println("El chofer no puede trabajar ya que esta offline");
     }
 
     public boolean disponible(){

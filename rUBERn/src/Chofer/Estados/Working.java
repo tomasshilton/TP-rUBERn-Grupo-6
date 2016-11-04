@@ -13,11 +13,15 @@ public class Working implements Estado{
     }
 
     public void goOnline(){
-        chofer.setEstado(new Online(chofer));
+        if(chofer.getViaje() != null){
+            chofer.setEstado(new Online(chofer));
+        }else{
+            System.out.println("El chofer esta viajando");
+        }
     }
 
     public void goOffline(){
-        throw new RuntimeException("El chofer no puede irse offline ya que esta trabajando");
+        System.out.println("El chofer no puede irse offline ya que esta trabajando");
     }
 
     public void working(){}
