@@ -1,5 +1,7 @@
 package rUBERn.Formulario;
 
+import Chofer.Categoria;
+
 import java.util.Scanner;
 
 /**
@@ -15,7 +17,7 @@ public class FormularioAgregarChofer extends FormularioChofer {
 
     public FormularioAgregarChofer(){
         super();
-        System.out.println("Ingrese la marca, el modelo, la capacidad y el numero correspondiente a la categoria del auto del nuevo chofer");
+        System.out.println("Ingrese la marca, el modelo, la capacidad y el numero correspondiente a la categoria(1-5) del auto del nuevo chofer");
         Scanner scannerMarca = new Scanner(System.in);
         marca = scannerMarca.next();
         Scanner scannerModelo = new Scanner(System.in);
@@ -24,7 +26,6 @@ public class FormularioAgregarChofer extends FormularioChofer {
         capacidad = scannerCapacidad.nextInt();
         Scanner catScanner = new Scanner(System.in);
         cat=catScanner.nextInt();
-        addCategoria(cat);
     }
 
     public String getCategoria() {
@@ -47,27 +48,32 @@ public class FormularioAgregarChofer extends FormularioChofer {
         return costoAdicional;
     }
 
-    public void addCategoria(int cat){
+    public Categoria addCategoria(){
+        Categoria ret = null;
         switch (cat){
             case 1:
-
+                ret = new Categoria("Categoria 1", 1);
                 break;
             case 2:
-
+                ret = new Categoria("Categoria 2", 2);
                 break;
             case 3:
-
+                ret = new Categoria("Categoria 3", 3);
                 break;
             case 4:
-
+                ret = new Categoria("Categoria 4", 4);
                 break;
             case 5:
-
+                ret = new Categoria("Categoria 5", 5);
                 break;
-
             default:
-                System.out.println("Por favor ingrese un comando correcto dentro del menú.");
-                break;
+                System.out.println("Por favor ingrese un comando correcto.");
+                addCategoria();
         }
+        return ret;
+    }
+
+    public int getCat() {
+        return cat;
     }
 }
