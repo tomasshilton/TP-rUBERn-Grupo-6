@@ -129,11 +129,12 @@ public class Controlador {
         if(clienteList.isEmpty())
             System.out.println("No se almacenaron clientes.");
         for(Cliente imprmirCliente : clienteList){
-            if(imprmirCliente.getViaje().equals(null)) {
+            if(imprmirCliente.isTravelling()) {
+                System.out.println("Cliente "+imprmirCliente.getId()+" "+"está viajando en este momento.");
+            }else{
                 System.out.println("Cliente " + imprmirCliente.getId() + "\t" + "Posicion: (" + imprmirCliente.getPosition().getX() + ", "
                         + imprmirCliente.getPosition().getY() + ")");
-            }else
-            System.out.println("Cliente "+imprmirCliente.getId()+" "+"está viajando en este momento.");
+            }
         }
         System.out.println("---------------------------------");
     }
