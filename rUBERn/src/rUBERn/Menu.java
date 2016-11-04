@@ -59,7 +59,7 @@ public class Menu {
                         Viaje viajeATerminar = controlador.getChofer(formularioTerminarViaje.getChoferID()).getViaje();
                         Registro nuevoRegistro = new Registro(viajeATerminar, controlador.getClienteByViaje(viajeATerminar), controlador.getChofer(formularioTerminarViaje.getChoferID()));
                         controlador.addRegistro(nuevoRegistro);
-                        controlador.write(nuevoRegistro);
+                        controlador.write();
                         controlador.getClienteByViaje(viajeATerminar).terminarViaje();
                         controlador.getChofer(formularioTerminarViaje.getChoferID()).terminarViaje();
                     } else {

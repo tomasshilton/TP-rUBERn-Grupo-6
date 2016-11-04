@@ -49,6 +49,6 @@ public class Registro {
                 ", chofer: " + chofer.getId() + "\n"+"\t" +
                 ", dineroParaChofer: " + dineroParaChofer + "\n"+"\t" +
                 ", dineroParaRUBERn: " + dineroParaRUBERn  +  "\n"+"\t" +
-                "-------------------------------------------------------";
+                "-------------------------------------------------------"+  "\n"+"\t";
     }
 }
