@@ -53,11 +53,15 @@ public class Menu {
                     break;
                 case 2:
                     FormularioChofer formularioTerminarViaje=new FormularioChofer();
-                    Viaje viajeATerminar = controlador.getChofer(formularioTerminarViaje.getChoferID()).getViaje();
-                    Registro nuevoRegistro = new Registro(viajeATerminar, controlador.getClienteByViaje(viajeATerminar), controlador.getChofer(formularioTerminarViaje.getChoferID()));
-                    controlador.addRegistro(nuevoRegistro);
-                    controlador.getClienteByViaje(viajeATerminar).terminarViaje();
-                    controlador.getChofer(formularioTerminarViaje.getChoferID()).terminarViaje();
+                    if(controlador.getChofer(formularioTerminarViaje.getChoferID()).getViaje() != null) {
+                        Viaje viajeATerminar = controlador.getChofer(formularioTerminarViaje.getChoferID()).getViaje();
+                        Registro nuevoRegistro = new Registro(viajeATerminar, controlador.getClienteByViaje(viajeATerminar), controlador.getChofer(formularioTerminarViaje.getChoferID()));
+                        controlador.addRegistro(nuevoRegistro);
+                        controlador.getClienteByViaje(viajeATerminar).terminarViaje();
+                        controlador.getChofer(formularioTerminarViaje.getChoferID()).terminarViaje();
+                    } else {
+                        System.out.println("El chofer seleccionado no esta realizando ningun viaje");
+                    }
                     break;
                 case 3:
                     FormularioChofer formularioFinalizarJornada=new FormularioChofer();
