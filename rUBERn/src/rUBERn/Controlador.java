@@ -29,9 +29,8 @@ public class Controlador {
 
     public void agregarChofer(Chofer choferAAgregar){
         choferes.put(choferAAgregar.getId(),choferAAgregar);
-
         ArrayList<Chofer> choferesList = new ArrayList<Chofer>(choferes.values());
-        this.buscador = new Buscador(choferesList);
+        buscador.addChofer(choferAAgregar);
     }
     public void addRegistro(Registro registroAAgregar){
         buscadorDeRegistros.addRegistro(registroAAgregar);
@@ -40,7 +39,10 @@ public class Controlador {
     public void removerChofer(String insertDNI) {
         if (choferes.containsKey(insertDNI)) {
             choferes.remove(insertDNI);
-        }else throw new NoSeEncontroElChoferException("No se encontro el chofer a remover");
+            buscador.removeChofer();
+        }else{
+            System.out.println("No se encontro el chofer a remover");
+        }
     }
 
     public Buscador getBuscador() {
