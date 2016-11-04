@@ -87,7 +87,7 @@ public class Menu {
                     break;
                 case 10:
                     FormularioCliente formularioBuscarCliente = new FormularioCliente();
-                    controlador.buscarRegistrosByChofer(controlador.getChofer(formularioBuscarCliente.getClienteID()));
+                    controlador.buscarRegistrosByCliente(controlador.getCliente(formularioBuscarCliente.getClienteID()));
                     break;
                 case 0:
                     System.out.println("Saliendo");
