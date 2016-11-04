@@ -79,6 +79,14 @@ public class Menu {
                 case 8:
                     controlador.imprmirGrillaCliente();
                     break;
+                case 9:
+                    FormularioChofer formularioBuscarChofer = new FormularioChofer();
+                    controlador.buscarRegistrosByChofer(controlador.getChofer(formularioBuscarChofer.getChoferID()));
+                    break;
+                case 10:
+                    FormularioCliente formularioBuscarCliente = new FormularioCliente();
+                    controlador.buscarRegistrosByChofer(controlador.getChofer(formularioBuscarCliente.getClienteID()));
+                    break;
                 case 0:
                     System.out.println("Saliendo");
                     running=false;
