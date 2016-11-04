@@ -29,7 +29,7 @@ public class Buscador {
         ArrayList<Chofer> choferesPosiblesPorCostoDeImagen = sortByCostoDeImagen(choferesPosiblesEnDistancia, viaje);
 
         for(Chofer choferATestear:choferesPosiblesPorCostoDeImagen) {
-            choferATestear.getId();
+            System.out.println("Chofer "+choferATestear.getId());
             if (choferATestear.evaluateViaje(viaje)) {
                 choferATestear.setViaje(viaje);
                 return;

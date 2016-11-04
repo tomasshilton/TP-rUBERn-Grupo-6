@@ -110,11 +110,11 @@ public class Controlador {
         for(Chofer imprimirChofer: choferesList){
             System.out.println("Chofer "+imprimirChofer.getId()+" : "+"\t"+
                     imprimirChofer.getUnEstado().toString()+"\t"+
-                    "Posicion: ("+imprimirChofer.getChoferCoordenas().getX()+", "
+                    "Posicion: ("+imprimirChofer.getChoferCoordenas().getX()+","
                     +imprimirChofer.getChoferCoordenas().getY()+")"+"\t"+
                     "Auto: ("+imprimirChofer.getChoferAuto().getMarca()+", "+
                     imprimirChofer.getChoferAuto().getModelo()+", "+
-                    imprimirChofer.getChoferAuto().getCapacidad()+ " max. capacidad ");
+                    imprimirChofer.getChoferAuto().getCapacidad()+ " max. capacidad)");
         }
         System.out.println("---------------------------------");
     }
@@ -123,12 +123,14 @@ public class Controlador {
         ArrayList<Cliente> clienteList = new ArrayList<Cliente>(clientes.values());
         System.out.println("---------------------------------"+"\n"+
                 "Sus clientes");
+        if(clienteList.isEmpty())
+            System.out.println("No se almacenaron clientes.");
         for(Cliente imprmirCliente : clienteList){
-            if(imprmirCliente.getViaje().equals(null))
-            System.out.println("Cliente "+imprmirCliente.getId()+"'\t"+"esta viajando");
-            else
-                System.out.println("Cliente "+imprmirCliente.getId()+"'\t"+"Posicion: ("+imprmirCliente.getPosition().getX()+", "
-                        +imprmirCliente.getPosition().getY()+")");
+            if(imprmirCliente.getViaje().equals(null)) {
+                System.out.println("Cliente " + imprmirCliente.getId() + "\t" + "Posicion: (" + imprmirCliente.getPosition().getX() + ", "
+                        + imprmirCliente.getPosition().getY() + ")");
+            }else
+            System.out.println("Cliente "+imprmirCliente.getId()+" "+"está viajando en este momento.");
         }
         System.out.println("---------------------------------");
     }
