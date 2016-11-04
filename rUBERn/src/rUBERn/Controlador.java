@@ -102,4 +102,34 @@ public class Controlador {
     public HashMap<String, Chofer> getChoferes() {
         return choferes;
     }
+
+    public void imprmirGrillaChoferes(){
+        ArrayList<Chofer> choferesList = new ArrayList<Chofer>(choferes.values());
+        System.out.println("---------------------------------"+"\n"+
+                "Sus choferes");
+        for(Chofer imprimirChofer: choferesList){
+            System.out.println("Chofer "+imprimirChofer.getId()+" : "+"\t"+
+                    imprimirChofer.getUnEstado().toString()+"\t"+
+                    "Posicion: ("+imprimirChofer.getChoferCoordenas().getX()+", "
+                    +imprimirChofer.getChoferCoordenas().getY()+")"+"\t"+
+                    "Auto: ("+imprimirChofer.getChoferAuto().getMarca()+", "+
+                    imprimirChofer.getChoferAuto().getModelo()+", "+
+                    imprimirChofer.getChoferAuto().getCapacidad()+ " max. capacidad ");
+        }
+        System.out.println("---------------------------------");
+    }
+
+    public void imprmirGrillaCliente(){
+        ArrayList<Cliente> clienteList = new ArrayList<Cliente>(clientes.values());
+        System.out.println("---------------------------------"+"\n"+
+                "Sus clientes");
+        for(Cliente imprmirCliente : clienteList){
+            if(imprmirCliente.getViaje().equals(null))
+            System.out.println("Cliente "+imprmirCliente.getId()+"'\t"+"esta viajando");
+            else
+                System.out.println("Cliente "+imprmirCliente.getId()+"'\t"+"Posicion: ("+imprmirCliente.getPosition().getX()+", "
+                        +imprmirCliente.getPosition().getY()+")");
+        }
+        System.out.println("---------------------------------");
+    }
 }

@@ -29,6 +29,7 @@ public class Buscador {
         ArrayList<Chofer> choferesPosiblesPorCostoDeImagen = sortByCostoDeImagen(choferesPosiblesEnDistancia, viaje);
 
         for(Chofer choferATestear:choferesPosiblesPorCostoDeImagen) {
+            choferATestear.getId();
             if (choferATestear.evaluateViaje(viaje)) {
                 choferATestear.setViaje(viaje);
                 return;
@@ -71,9 +72,6 @@ public class Buscador {
         }
         return choferesEnDistancia;
     }
-
-
-
 
     public ArrayList<Chofer> sortByCostoDeImagen(ArrayList<Chofer> choferesTrasFiltrado, Viaje viaje) {
 

@@ -35,6 +35,7 @@ public class Menu {
                     "5.Agregar Chofer"+"\n"+"\t"+
                     "6.Sacar Chofer"+"\n"+"\t"+
                     "7.Mostrar Choferes"+"\n"+"\t"+
+                    "8.Mostrar Clientes"+"\n"+"\t"+
                     "0.Salir");
             System.out.println(" \nIngrese un comando");
             Scanner input = new Scanner(System.in);
@@ -71,6 +72,12 @@ public class Menu {
                 case 6:
                     FormularioChofer formularioRemoverChofer = new FormularioChofer();
                     controlador.removerChofer(formularioRemoverChofer.getChoferID());
+                    break;
+                case 7:
+                    controlador.imprmirGrillaChoferes();
+                    break;
+                case 8:
+                    controlador.imprmirGrillaCliente();
                     break;
                 case 0:
                     System.out.println("Saliendo");
