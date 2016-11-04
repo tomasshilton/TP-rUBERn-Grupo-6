@@ -36,7 +36,7 @@ public class Buscador {
             }
         }
 
-        throw new NoHayChoferesException("No hay chofer disponible para este viaje");
+        System.out.println("No se encontro chofer a quien darle el viaje");
 
     }
 
