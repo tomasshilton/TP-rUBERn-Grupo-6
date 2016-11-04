@@ -91,8 +91,8 @@ public class Controlador {
             System.out.println("No se encontro ningún registro.");
         else {
             System.out.println("Los viajes de este cliente son:");
+            int i=1;
             for (Registro registroAImprimir : registrosByCliente) {
-                int i = 1;
                 System.out.println("Viaje " + i + ":");
                 System.out.println("Id del chofer: " + registroAImprimir.getChofer().getId());
                 System.out.println("Distancia del viaje: " + registroAImprimir.getViaje().getDistance());
@@ -111,8 +111,8 @@ public class Controlador {
             System.out.println("No se encontro ningún registro.");
         else {
             System.out.println("Los viajes de este chofer son:");
+            int i = 1;
             for (Registro registroAImprimir : registrosByChofer) {
-                int i = 1;
                 System.out.println("Viaje " + i + ":");
                 System.out.println("Id del cliente: " + registroAImprimir.getCliente().getId());
                 System.out.println("Distancia del viaje: " + registroAImprimir.getViaje().getDistance());
@@ -128,8 +128,9 @@ public class Controlador {
     public void mostrarComisiones(){
         System.out.println("Las comisiones ganadas por rUBERn son:");
         double comisionTotal = 0;
+        int i = 1;
         for (Registro registroAImprimir : buscadorDeRegistros.getRegistros()){
-            int i = 1;
+
             System.out.println("Viaje " + i + ":");
             System.out.println("Id del cliente: " + registroAImprimir.getCliente().getId());
             System.out.println("Id del chofer: " + registroAImprimir.getChofer().getId());
