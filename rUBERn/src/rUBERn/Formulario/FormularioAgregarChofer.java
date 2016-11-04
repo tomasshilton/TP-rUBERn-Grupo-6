@@ -64,7 +64,7 @@ public class FormularioAgregarChofer extends FormularioChofer {
                 ret = new Categoria("Categoria 4", 5);
                 break;
             case 5:
-                ret = new Categoria("Categoria 5", 1);//
+                ret = new Categoria("Categoria 5", 1);
                 break;
             default:
                 System.out.println("Por favor ingrese un comando correcto.");
