@@ -45,6 +45,7 @@ public class Registro {
     public String toString() {
         return "Registro" +  "\n"+"\t" +
                 "- distancia del viaje: " + viaje.getDistance() + "\n"+"\t" +
+                "- costo del viaje: " +viaje.getPrecio() + "\n"+"\t" +
                 "- cliente: " + cliente.getId() + "\n"+"\t" +
                 "- chofer: " + chofer.getId() + "\n"+"\t" +
                 "- dineroParaChofer: " + dineroParaChofer + "\n"+"\t" +
