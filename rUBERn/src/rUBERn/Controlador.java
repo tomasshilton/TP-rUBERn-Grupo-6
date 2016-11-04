@@ -12,7 +12,6 @@ public class Controlador {
     private HashMap<String, Chofer> choferes;
     private Buscador buscador;
     private BuscadorDeRegistros buscadorDeRegistros;
-    private Categoria[] categorias = new Categoria[] {new Categoria("Categoria 1",15), new Categoria("Categoria 2", 10), new Categoria("Categoria 3", 7), new Categoria("Categoria 4", 5), new Categoria("Categoria 5", 1)};
 
 
     public Controlador(HashMap<String,Chofer> choferes){
@@ -139,7 +138,4 @@ public class Controlador {
         System.out.println("---------------------------------");
     }
 
-    public Categoria getCategoria(int index){
-        return categorias[index - 1];
-    }
 }
