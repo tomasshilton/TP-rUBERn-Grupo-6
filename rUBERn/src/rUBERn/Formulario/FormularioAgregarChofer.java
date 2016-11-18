@@ -56,9 +56,11 @@ public class FormularioAgregarChofer extends FormularioDNI {
                 break;
             case 5:
                 ret = new Categoria("Categoria 5", 1);
-                break;//
+                break;
             default:
-                System.out.println("Por favor ingrese un comando correcto.");
+                System.out.println("Por favor ingrese una categoria correcta.");
+                Scanner catScanner = new Scanner(System.in);
+                cat=catScanner.nextInt();
                 addCategoria();
         }
         return ret;
